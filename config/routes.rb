@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :show, :create]
     resources :favorites, only: [:index, :show]
     resources :reviews, only: [:new, :create]
-  devise_for :users
   end
+  devise_for :users
 end
