@@ -1,2 +1,48 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'shared/navbar' %>
+
+
+<div id="header" class="carousel slide" data-ride="carousel" data-keyboard="false">
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag "homepage/header-bg-1.jpg", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "homepage/header-bg-2.jpg", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "homepage/header-bg-3.jpg", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "homepage/header-bg-4.jpeg", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "homepage/header-bg-5.jpg", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "homepage/header-bg-6.jpg", class: "img-carousel" %>
+    </div>
+  </div>
+
+</div>
+
+<form id="searchForm">
+  <div class="form-row">
+    <div class="col-6">
+      <input id="location" type="text" class="form-control form-control-lg ap-input" placeholder="Ville" id="autocomplete">
+    </div>
+    <div class="col">
+      <input id="date" type="text" class="form-control form-control-lg" placeholder="Date" style="cursor: pointer;">
+    </div>
+    <div class="col" id="number-guests">
+      <a class="toggle-button">Voyageurs</a>
+        <ul id="numberGuests" style="display: none">
+          <li><input type="number" class="form-control form-control-lg" placeholder="Adultes" min="1" max="20"></li>
+          <li><input type="number" class="form-control form-control-lg" placeholder="Enfants" min="0" max="5"></li>
+        </ul>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Rechercher</button>
+</form>
+
+
