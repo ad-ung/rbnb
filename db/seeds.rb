@@ -79,3 +79,18 @@ villas.each do |villa|
     r.save!
   end
 end
+
+#favorites and bookings for John_Doe
+
+villas.each do |villa|
+  b = Booking.new(starts_on: "26/07/2020", ends_on: "04/08/2020")
+  b.user = User.find_by(pseudo: "John_Doe")
+  b.villa = Villa.find_by(name: villa)
+  b.save!
+end
+
+3.times do |i|
+  f = Favorite.new(villa_id: i + 1)
+  f.user = User.find_by(pseudo: "John_Doe")
+  f.save!
+end
