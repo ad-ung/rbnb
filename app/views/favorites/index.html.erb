@@ -1,5 +1,6 @@
 <ul>
 <%@favorites.each do |favoris| %>
 <%= link_to favoris.villa.name, villa_path(favoris.villa) %>
+<%= favoris.villa.city%>
 <%end %>
 </ul>
