@@ -22,13 +22,13 @@
 
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">
+
+      <% if user_signed_in? %>
       <li class="nav-item">
         <a class="nav-link waves-effect waves-light">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
-
-      <% if user_signed_in? %>
 
         <li class="nav-item avatar dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
