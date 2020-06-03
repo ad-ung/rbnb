@@ -1,12 +1,27 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+nav
+{
+  background: #2E2E2E;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+
+.navbar-brand{
+  font-family: 'Dancing Script', cursive;
+  font-size: 32px;
+
+  color: white;
 }
 
-.navbar-lewagon .navbar-brand img {
+.nav-item
+{
+  padding-right: 16px;
+
+}
+
+img{
   width: 40px;
 }
+
+
+
