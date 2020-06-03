@@ -5,5 +5,6 @@ class FavoritesController < ApplicationController
 
   def show
     @favorite = Favorite.find(params[:id])
+    #@villa = @favorite.villa
   end
 end
