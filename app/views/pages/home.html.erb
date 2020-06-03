@@ -26,7 +26,20 @@
 
 </div>
 
-<form id="searchForm">
+<div class="container">
+
+  <%= simple_form_for :search, url: villas_path, method: "GET", html: { class: 'form-home form-inline' } do |f| %>
+    <%= f.input :city, label: 'Ville' %>
+    <%= f.input :starts_on, label: "Date d'arrivée" %>
+    <%= f.input :ends_on, label: "Date de départ" %>
+    <%= f.input :number_of_guests, label: "Nombre de voyageurs" %>
+    <%= f.button :submit, value: "Rechercher", class: "btn btn-info" %>
+  <% end %>
+
+</div>
+
+
+<!-- <form id="searchForm">
   <div class="form-row">
     <div class="col-6">
       <input id="location" type="text" class="form-control form-control-lg ap-input" placeholder="Ville" id="autocomplete">
@@ -43,6 +56,6 @@
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Rechercher</button>
-</form>
+</form> -->
 
 
