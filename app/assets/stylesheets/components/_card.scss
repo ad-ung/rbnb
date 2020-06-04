@@ -1,0 +1,163 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 8px;
+  margin-left: 8px;
+  margin-top: 25px;
+}
+
+.card-img {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+
+.card-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: .125rem;
+  border: 1px solid #eaeaea;
+  color: #202020;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all .5s ease;
+  margin-bottom: 16px;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 5px 5px #dddddd;
+}
+
+.card-tag {
+  display: flex;
+  float: left;
+  margin: 0 0.5rem 1rem 0;
+}
+
+.tag__icon {
+  padding: 0 .5rem 0 0;
+}
+
+.icn {
+  line-height: 1;
+  font-size: 2rem;
+  font-family: "icomoon";
+  display: inline-block;
+  vertical-align: bottom;
+  box-sizing: content-box;
+  padding-left: 10px;
+}
+
+.tag__text {
+  padding: .4rem 1rem 0 0;
+  font-weight: lighter;
+  font-size: 32px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.banner-villa {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.spacer {
+  padding-top: 50px;
+}
+
+.house-wishlist__btn {
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 500;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 1px solid #cacaca;
+  border-radius: .25rem;
+}
+
+.btn-sm {
+  padding: .625rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  border-radius: .125rem;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  color: #202020;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  padding: .875rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  border-radius: .125rem;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+
+.add-to-favorite {
+  position: relative;
+  top: -100px;
+  left: -450px;
+}
+
+.search-container {
+  width: 100%;
+}
+
+.search-header__container {
+  border: solid 1px #eaeaea;
+  border-top: 0;
+  padding: 1rem 0;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.search__left-part {
+  display: flex;
+  flex: 1;
+}
+
+.search-input__wrap {
+  flex: 2 1 0;
+  height: 49px;
+  position: relative;
+}
+
+.search__calendar--desktop {
+  display: inline-block;
+  margin-left: .5rem;
+  -ms-flex: 0;
+  flex: 0;
+}
+
+.house-card__wishlist-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 11;
+  transition: opacity .5s ease-out;
+}
