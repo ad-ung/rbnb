@@ -33,8 +33,8 @@
 
     <%= simple_form_for :search, url: villas_path, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
       <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: "form-control-lg", id: 'input' } %>
-      <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_start_date', style: "width: 250px; margin: 8px;" } %>
-      <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_end_date', style: "width: 250px; margin: 8px;"} %>
+      <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_start_date', style: "width: 180px; margin: 8px;" } %>
+      <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_end_date', style: "width: 180px; margin: 8px;"} %>
       <%= f.input :number_of_guests, collection: ["Voyageurs",1,2,3,4,5,6,7,8,9,10,11,12], selected: "Voyageurs", label: false, input_html: { class: "custom-select-lg", id: "guests" } %>
       <%= f.button :submit, "Rechercher", class: "btn btn-info p-1", id:'button-search', style: "display:block;" %>
     <% end %>
