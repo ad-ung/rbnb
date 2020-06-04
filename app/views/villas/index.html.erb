@@ -1,11 +1,30 @@
+<div class="search-header__container container-fluid">
+  <div class="row">
+    <div class="search__left-part col-lg-auto col-24">
+      <div class="search-input__wrap search__input">
+        <div class="search-input">
+          <span class="icn icn-location icn-xs"></span>
+          <input type="text" class="search-input__input" placeholder="Où souhaitez-vous partir ?">
+        </div>
+        <div class="calendar__parent search__calendar search__calendar--desktop">
+          <div class="datepicker__wrapper">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
   <div class="row">
     <% @villas.each do |villa| %>
       <div class="col-lg-6 col-24">
         <div class="card">
           <%= link_to villa_path(villa) do %>
-          <%= image_tag villa.img_url %>
-            <div class="card-img" style="background-image: url(https://res.cloudinary.com/datbhgbcq/image/upload/v1591214712/villa-alicia_vqrvhj.webp)">
+          <% image_url = villa.img_url.present? ? villa.img_url : "https://res.cloudinary.com/datbhgbcq/image/upload/v1591214712/villa-alicia_vqrvhj.webp" %>
+            <div class="card-img" style="background-image: url('<%= image_url %>');">
             </div>
           <% end %>
           <div class="card-infos">

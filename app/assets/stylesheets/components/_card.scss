@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   margin-right: 8px;
   margin-left: 8px;
+  margin-top: 25px;
 }
 
 .card-img {
@@ -125,7 +126,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: transparent;
+  background-color: #ffffff;
   border: 1px solid transparent;
   padding: .875rem 1.5rem;
   font-size: 1rem;
@@ -136,6 +137,67 @@
 
 .add-to-favorite {
   position: relative;
-  top: -150px;
-  left: 50px;
+  top: -100px;
+  left: -450px;
+}
+
+.search-container {
+  width: 100%;
+}
+
+.search-header__container {
+  border: solid 1px #eaeaea;
+  border-top: 0;
+  padding: 1rem 0;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.search__left-part {
+  display: flex;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.search-input__wrap {
+  -ms-flex: 2 1 0px;
+  flex: 2 1 0;
+  border: 1px solid #cacaca;
+  height: 49px;
+  position: relative;
+}
+
+.search__calendar--desktop {
+  display: inline-block;
+  margin-left: .5rem;
+  -ms-flex: 0;
+  flex: 0;
+}
+
+.calendar__parent {
+  position: relative;
+}
+
+.datepicker__wrapper .datepicker__dummy-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  border: 1px solid #cacaca;
+  border-radius: .125rem;
+  overflow: hidden;
+}
+
+.house-card__wishlist-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 11;
+  transition: opacity .5s ease-out;
 }
