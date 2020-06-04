@@ -11,3 +11,20 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+footer {
+  background-color: #2E2E2E;
+}
+
+footer{
+  color: #bdbdbd ;
+}
+
+footer a {
+  color: #eeeeee;
+}
+
+footer a:hover
+{
+  color: black;
+}
