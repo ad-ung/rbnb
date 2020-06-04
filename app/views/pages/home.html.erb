@@ -1,9 +1,9 @@
-<%= render 'shared/navbar' %>
+<%= render 'shared/navbar-hp' %>
 
 
 <div id="header" class="carousel slide" data-ride="carousel" data-keyboard="false">
 
-  <div class="carousel-inner">
+  <div class="carousel-inner position-relative">
     <div class="carousel-item active">
       <%= image_tag "homepage/header-bg-1.jpg", class: "img-carousel" %>
     </div>
@@ -26,17 +26,55 @@
 
 </div>
 
-<div class="container">
+  <div class="w-100 position-absolute text-center" style="top:35%;">
+    <h1 class="title">
+      <span id="banner-typed-text"></span>
+    </h1>
 
-  <%= simple_form_for :search, url: villas_path, method: "GET", html: { class: 'form-home form-inline' } do |f| %>
-    <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: 'input' } %>
-    <%= f.input :starts_on, placeholder: "Date d'arrivée", label: false, input_html: { class: 'input', id: 'input-small' } %>
-    <%= f.input :ends_on, placeholder: "Date de départ", label: false, input_html: { class: 'input', id: 'input-small' } %>
-    <%= f.input :number_of_guests, placeholder: "Voyageurs", label: false, input_html: { class: 'input', id: 'input-small' } %>
-    <%= f.button :submit, "Rechercher", class: "btn btn-info p-2" %>
-  <% end %>
+    <%= simple_form_for :search, url: villas_path, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
+      <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: "form-control-lg", id: 'input' } %>
+      <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_start_date', style: "width: 180px; margin: 8px;" } %>
+      <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_end_date', style: "width: 180px; margin: 8px;"} %>
+      <%= f.input :number_of_guests, collection: ["Voyageurs",1,2,3,4,5,6,7,8,9,10,11,12], selected: "Voyageurs", label: false, input_html: { class: "custom-select-lg", id: "guests" } %>
+      <%= f.button :submit, "Rechercher", class: "btn btn-info p-1", id:'button-search', style: "display:block;" %>
+    <% end %>
+  </div>
 
-</div>
+  <a class="arrow-wrap" href="#content">
+  <span class="arrow"></span>
+  <!--<span class="hint">scroll</span>-->
+  </a>
+
+  <div class="content mt-5 pt-4" id="content">
+    <div class="container">
+
+      <% #Content below %>
+
+      <h1>Content Section</h1>
+      <p>
+        The purpose of this arrow demo is to indicate that there is further content down the page. While studies have generally shown that users <em>do, in fact,</em> scroll (thus killing the worries about page fold), it still has become somewhat fashionable to indicate scroll intent.
+      </p>
+      <p>
+        A subtle animation triggered after a period of time draws attention to the scroll indicator. Some jQuery hides the indicator after the user begins scrolling.
+      </p>
+
+      <p>
+        The purpose of this arrow demo is to indicate that there is further content down the page. While studies have generally shown that users <em>do, in fact,</em> scroll (thus killing the worries about page fold), it still has become somewhat fashionable to indicate scroll intent.
+      </p>
+      <p>
+        A subtle animation triggered after a period of time draws attention to the scroll indicator. Some jQuery hides the indicator after the user begins scrolling.
+      </p>
+
+      <p>
+        The purpose of this arrow demo is to indicate that there is further content down the page. While studies have generally shown that users <em>do, in fact,</em> scroll (thus killing the worries about page fold), it still has become somewhat fashionable to indicate scroll intent.
+      </p>
+      <p>
+        A subtle animation triggered after a period of time draws attention to the scroll indicator. Some jQuery hides the indicator after the user begins scrolling.
+      </p>
+
+    </div>
+  </div>
+
 
 
 <!-- <form id="searchForm">
