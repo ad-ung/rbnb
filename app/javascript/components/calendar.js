@@ -19,7 +19,8 @@ const toggleDateInputs = function() {
     // }
   });
     flatpickr(endDateInput, {
-      dateFormat: 'd/m/Y'
+      dateFormat: 'd/m/Y',
+      minDate: 'today'
         // disable: unvailableDates,
     });
   }
