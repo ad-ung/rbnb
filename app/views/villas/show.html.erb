@@ -1,2 +1,12 @@
-<h1>Villas#show</h1>
-<p>Find me in app/views/villas/show.html.erb</p>
+<div class="banner-villa">
+  <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/c_scale,h_1000/v1591265671/villa-alicia-6_vuwl1h.webp" %>
+  <div class="add-to-favorite">
+    <button class="btn house-wishlist__btn btn-sm btn-light" style="font-weight: lighter;"><i class="far fa-heart" style="padding-right: 10px;"></i> Ajouter aux favoris</button>
+  </div>
+</div>
+
+
+
+<div class="container spacer">
+  <h2><%= @villa.name %></h2>
+</div>

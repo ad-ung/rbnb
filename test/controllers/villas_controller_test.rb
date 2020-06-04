@@ -15,5 +15,4 @@ class VillasControllerTest < ActionDispatch::IntegrationTest
     get villas_create_url
     assert_response :success
   end
-
 end
