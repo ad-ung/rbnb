@@ -74,24 +74,6 @@
   padding-top: 50px;
 }
 
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  font-size: 2rem;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 200px;
-}
-
-.nav-item {
-  padding: 16px;
-}
-
 .avatar {
   width: 50px;
   cursor: pointer;
@@ -161,14 +143,11 @@
 
 .search__left-part {
   display: flex;
-  -ms-flex: 1;
   flex: 1;
 }
 
 .search-input__wrap {
-  -ms-flex: 2 1 0px;
   flex: 2 1 0;
-  border: 1px solid #cacaca;
   height: 49px;
   position: relative;
 }
@@ -185,7 +164,6 @@
 }
 
 .datepicker__wrapper .datepicker__dummy-wrapper {
-  display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: start;
   justify-content: flex-start;
@@ -200,4 +178,12 @@
   right: 1rem;
   z-index: 11;
   transition: opacity .5s ease-out;
+}
+
+.search-input {
+  display: flex;
+  padding: 1rem 0 1rem 1rem;
+  align-items: center;
+  height: 48px;
+  line-height: 48px;
 }
