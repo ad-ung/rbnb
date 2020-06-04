@@ -1,0 +1,22 @@
+<% # à changer par la Navbar de Bernadette %>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="nav-homepage">
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav text-uppercase ml-auto">
+      <li class="nav-item"><a class="nav-link" href="#pages">Pages</a></li>
+      <li class="nav-item"><a class="nav-link" href="#villas">Villas</a></li>
+      <li class="nav-item"><a class="nav-link" href="#favorites">Favorites</a></li>
+      <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t ".sign_out", default: "Log out" %>
+          <% end %>
+        <% else %>
+          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "nav-link js-scroll-trigger"  %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
