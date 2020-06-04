@@ -12,12 +12,12 @@
   </head>
 
   <body class="bg-white">
-    
-    <%= render 'shared/navbar' %>
+
+    <%= render 'shared/navbar' unless @disable_nav %>
     <%= render 'shared/flashes' %>
-    
+
     <%= yield %>
-    
+
     <%= render 'shared/footer' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
