@@ -1,3 +1,188 @@
-#Pages#Home
+<%= render 'shared/navbar-hp' %>
 
 
+<div id="header" class="carousel slide" data-ride="carousel" data-keyboard="false">
+
+  <div class="carousel-inner position-relative">
+    <div class="carousel-item active">
+      <%= image_tag "https://images.unsplash.com/photo-1515725715471-901a7c17cd8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "homepage/header-bg-2.jpg", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "homepage/header-bg-4.jpeg", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "homepage/header-bg-5.jpg", class: "img-carousel" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "homepage/header-bg-6.jpg", class: "img-carousel" %>
+    </div>
+  </div>
+
+</div>
+
+  <div class="w-100 position-absolute text-center" style="top:37%;">
+    <h1 class="title">
+      <span id="banner-typed-text"></span>
+    </h1>
+
+    <%= simple_form_for :search, url: villas_path, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
+      <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: "form-control-lg", id: 'input' } %>
+      <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_start_date', style: "width: 180px; margin: 8px;" } %>
+      <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_end_date', style: "width: 180px; margin: 8px;"} %>
+      <%= f.input :number_of_guests, collection: ["Voyageurs",1,2,3,4,5,6,7,8,9,10,11,12], selected: "Voyageurs", label: false, input_html: { class: "custom-select-lg", id: "guests" } %>
+      <%= f.button :submit, "Rechercher", class: "btn btn-info p-1", id:'button-search', style: "display:block;" %>
+    <% end %>
+  </div>
+
+  <a class="arrow-wrap" href="#content">
+  <span class="arrow"></span>
+  <!--<span class="hint">scroll</span>-->
+  </a>
+
+  <div class="content mt-5 pt-4" id="content">
+    <div class="container">
+
+      <% #Content below %>
+
+      <div class="text-center">
+      <h1 class="section-heading text-container">Nos villas d'exception</h1>
+      <br>
+      <h5>Entrez dans un monde caché</h5>
+      <p>
+        Dans des destinations mythiques ou surprenantes, notre équipe sillonne les routes pour ouvrir les portes des plus belles maisons à louer. Chaque lieu nous inspire des expériences inédites qui vous laisseront des souvenirs inoubliables.
+      </p>
+      <p>
+        Votre coin de paradis ne sera pas le même si vous partez avec une ribambelle d’enfants ou de grandes tablées d’amis. Du choix de votre maison à votre retour chez vous, nous créons vos vacances idéales, exactement comme vous les aviez rêvées.
+      </p>
+
+      <p>
+        Partir en vacances, c’est aussi changer de tempo, aller vers l’inattendu, avoir le coeur qui s'accélère et le souffle coupé. C’est partager ces moments uniques qu’on évoquera encore des années plus tard.
+      </p>
+       <p id="nospace">
+        Laissez libre cours à votre imagination et demandez-nous l’impossible. Nous construisons pour vous des expériences inédites, insolites ou extraordinaires.</p>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+<!-- <form id="searchForm">
+  <div class="form-row">
+    <div class="col-6">
+      <input id="location" type="text" class="form-control form-control-lg ap-input" placeholder="Ville" id="autocomplete">
+    </div>
+    <div class="col">
+      <input id="date" type="text" class="form-control form-control-lg" placeholder="Date" style="cursor: pointer;">
+    </div>
+    <div class="col" id="number-guests">
+      <a class="toggle-button">Voyageurs</a>
+        <ul id="numberGuests" style="display: none">
+          <li><input type="number" class="form-control form-control-lg" placeholder="Adultes" min="1" max="20"></li>
+          <li><input type="number" class="form-control form-control-lg" placeholder="Enfants" min="0" max="5"></li>
+        </ul>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Rechercher</button>
+</form> -->
+
+<% #Content villas %>
+
+<section class="page-section bg-light pt-5" id="villas">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-container">Nos sublimes villas</h2>
+                    <h3 class="section-subheading text-muted">Découvrez nos magnifiques villas</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="villas-item">
+                            <a class="villas-link" href="#"> <!-- mettre le lien des villas-->
+                              <div class="villas-hover">
+                                    <div class="villas-hover-content"></div>
+                                </div>
+                                <%= image_tag "homepage/01.jpg", class: "img-fluid" %>
+                               </a>
+                            <div class="villas-caption">
+                                <div class="villas-caption-heading">Villa Majoris</div>
+                                <div class="villas-caption-subheading text-muted">Lisbonne</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="villas-item">
+                          <a class="villas-link" href="#"> <!-- mettre le lien des villas-->
+                                <div class="villas-hover">
+                                    <div class="villas-hover-content"></div>
+                                </div>
+                                <%= image_tag "homepage/02.jpg", class: "img-fluid" %>
+                              </a>
+                            <div class="villas-caption">
+                                <div class="villas-caption-heading">Villa César</div>
+                                <div class="villas-caption-subheading text-muted">Paris</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="villas-item">
+                            <a class="villas-link" data-toggle="modal" href="#"> <!-- mettre le lien des villas-->
+                                <div class="villas-hover">
+                                    <div class="villas-hover-content"></div>
+                                </div>
+                                <%= image_tag "homepage/03.jpg", class: "img-fluid" %>
+                                </a>
+                            <div class="villas-caption">
+                                <div class="villas-caption-heading">Villa Arista</div>
+                                <div class="villas-caption-subheading text-muted">Sicile</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="villas-item">
+                            <a class="villas-link" data-toggle="modal" href="#"> <!-- mettre le lien des villas-->
+                                <div class="villas-hover">
+                                    <div class="villas-hover-content"></div>
+                                </div>
+                                <%= image_tag "homepage/04.jpg", class: "img-fluid" %></a>
+                            <div class="villas-caption">
+                                <div class="villas-caption-heading">Villa Matola</div>
+                                <div class="villas-caption-subheading text-muted">Saint-Tropez</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="villas-item">
+                            <a class="villas-link" data-toggle="modal" href="#"> <!-- mettre le lien des villas-->
+                                <div class="villas-hover">
+                                    <div class="villas-hover-content"></div>
+                                </div>
+                                <%= image_tag "homepage/05.jpg", class: "img-fluid" %></a>
+                            <div class="villas-caption">
+                                <div class="villas-caption-heading">Villa Pimashu</div>
+                                <div class="villas-caption-subheading text-muted">Lisbonne</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="villas-item">
+                            <a class="villas-link" data-toggle="modal" href="#"> <!-- mettre le lien des villas-->
+                                <div class="villas-hover">
+                                    <div class="villas-hover-content"></div>
+                                </div>
+                                <%= image_tag "homepage/06.jpg", class: "img-fluid" %></a>
+                            <div class="villas-caption">
+                                <div class="villas-caption-heading">Villa Myrto</div>
+                                <div class="villas-caption-subheading text-muted">Mykonos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
