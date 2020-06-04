@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_150215) do
+ActiveRecord::Schema.define(version: 2020_06_04_194633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,23 @@ ActiveRecord::Schema.define(version: 2020_06_04_150215) do
     t.index ["villa_id"], name: "index_favorites_on_villa_id"
   end
 
+  create_table "features", force: :cascade do |t|
+    t.integer "guest_nb"
+    t.integer "bedroom_nb"
+    t.integer "bathroom_nb"
+    t.bigint "villa_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["villa_id"], name: "index_features_on_villa_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.bigint "villa_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rating"
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["villa_id"], name: "index_reviews_on_villa_id"
   end
@@ -95,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_150215) do
   add_foreign_key "bookings", "villas"
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "villas"
+  add_foreign_key "features", "villas"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "villas"
 end
