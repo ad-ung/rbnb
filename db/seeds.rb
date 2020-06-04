@@ -8,6 +8,12 @@
 
 # villa
 
+
+Villa.destroy_all
+
+require "open-uri"
+
+
 villas = [
   "Casa Ivana",
   "Villa Estelle",
@@ -40,6 +46,9 @@ descriptions = [
   "Cette sublime villa est située à seulement 200 mètres de la baie de Miami, au bout d’une impasse pour plus de tranquillité. La cuisine toute équipée avec bar est ouverte sur une grande salle à manger. Un premier séjour pour recevoir et un autre donnant accès direct à la magnifique piscine. Une très grande terrasse entoure la piscine dont une partie est ombragée. L’extérieur possède aussi un ponton pour un accès direct à la mer. Le tout décoré avec style (carrelage en porcelaine, plan de travail en marbre…).",
   "Cette impressionnante villa des pièces à la pointe de la technologie. Elle comporte également une cuisine toute équipée avec ilot central. Celle-ci est ouverte sur une belle salle à manger. De nombreux espaces de détente sont prévus : un espacé télévisé, un séjour, un coin bibliothèque à l’étage. Le tout étant décoré avec soin : marbre au sol, lustres, aquarium, balcon… A l’extérieur, une belle piscine avec un patio ombragé. Cette villa est située dans une résidence sécurisée 24h/24, à quelques pas de la plage.",
   "Magnifique villa de luxe au bord de l’eau. Une grande cuisine toute équipée possède un ilot central imposant avec plan de travail en granit. Une grande salle à manger est prévue pour accueillir de nombreux convives. A l’entrée, un grand séjour et un bureau fermé. Double vitrage partout, air conditionné, portes en bois massif… Dehors, une sublime piscine moderne avec terrasse ombragée, salon extérieur et ponton au bord de l’eau. Un garage pour une voiture, un dressing et une buanderie complètent ce bien."
+]
+
+files = [
 ]
 
 ppd = [671, 591, 472, 820, 1109, 581, 492, 720]
@@ -93,4 +102,26 @@ end
   f = Favorite.new(villa_id: i + 1)
   f.user = User.find_by(pseudo: "John_Doe")
   f.save!
+end
+
+
+
+file = URI.open('https://res.cloudinary.com/datbhgbcq/image/upload/v1591277323/villa-alicia-7_gcjoau.webp')
+casa_ivana = Villa.find_by(name: 'Casa Ivana')
+casa_ivana.photo.attach(io: file, filename: 'ivana.png', content_type: 'image/png')
+
+
+img_url = [
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/casa_ivana_byzwkf.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_omnia_xv1d1s.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/the_beach_house_njz173.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_inesta_tkrc31.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/lake_house_villa_jkm14a.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_carlota_p6bswt.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/tropical_oasis_uuyydk.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_karizma_aq0xkw.webp"
+]
+
+villas.each_with_index do |villa, i|
+  villa.img_url= img_url[i]
 end
