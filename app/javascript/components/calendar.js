@@ -1,4 +1,4 @@
-const toggleDateInputs = function() {
+const DatePickerHomePage = function() {
   const startDateInput = document.getElementById('booking_start_date');
   const endDateInput = document.getElementById('booking_end_date');
   if (startDateInput && endDateInput) {
@@ -26,4 +26,4 @@ const toggleDateInputs = function() {
   }
 };
 
-export { toggleDateInputs }
+export { tDatePickerHomePage }
