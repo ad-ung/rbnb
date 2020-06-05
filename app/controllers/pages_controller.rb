@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @villas = Villa.all
+    @disable_nav = true
   end
 
   def index
