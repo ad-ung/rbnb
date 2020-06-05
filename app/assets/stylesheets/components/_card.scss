@@ -59,7 +59,7 @@
 
 .icn-show {
   line-height: 1;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: "icomoon";
   display: inline-block;
   vertical-align: bottom;
@@ -69,7 +69,12 @@
 .tag__text {
   padding: .4rem 1rem 0 0;
   font-weight: lighter;
-  font-size: 32px;
+  font-size: 1rem;
+}
+
+.tag-list__tag {
+  display: flex;
+  margin: 0 0 .5rem 0;
 }
 
 *, *::before, *::after {
@@ -186,6 +191,14 @@
   left: -450px;
 }
 
+.house-surrounding__title {
+  margin: 0 0 1.5rem 0;
+}
+
+.house-surrounding__text {
+  white-space: pre-line;
+}
+
 .container-fluid {
   width: 100%;
   padding-right: 16px;
@@ -237,7 +250,13 @@
   margin: 0 0 0 .5rem;
 }
 
-
+.house-services__frame {
+  border-radius: .25rem;
+  border: 1px solid #cacaca;
+  position: relative;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  margin: 0 0 1.5rem 0;
+}
 
 // .sticky-bottom {
 //   width: 100%;
@@ -351,6 +370,18 @@ p {
   }
 }
 
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.house-surroundings__maps {
+  height: 300px;
+  margin: 0 auto 1.5rem;
+}
+
 .col-24 {
   // flex: 0 0 100%;
   max-width: 100%;
@@ -367,3 +398,12 @@ p {
     height: 480px;
   }
 }
+
+@media (min-width: 576px) {
+.col-sm-12 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  }
+}
+
+
