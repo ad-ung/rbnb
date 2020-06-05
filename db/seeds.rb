@@ -28,6 +28,10 @@ puts "destroy Villa"
 
 Villa.destroy_all
 
+puts "destroy Feature"
+
+Feature.destroy_all
+
 require "open-uri"
 
 
