@@ -1,27 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
-nav
-{
+#nav-homepage {
+  transition: 0.5s background-color ease;
+  color: white;
+}
+
+nav {
   background: #2E2E2E;
 }
 
-
-.navbar-brand{
+.navbar-brand {
   font-family: 'Dancing Script', cursive;
   font-size: 32px;
 
   color: white;
+  padding-left: 16px;
 }
 
-.nav-item
-{
+.nav-item {
   padding-right: 16px;
-
 }
 
-img{
+img {
   width: 40px;
 }
-
-
-
