@@ -72,13 +72,13 @@ descriptions = [
 
 ppd = [671, 591, 472, 820, 1109, 581, 492, 720]
 
-puts "Creation villa"
+puts "Creation villa Miami"
 
 villas.each_with_index do |villa, i|
   Villa.create!(name: villa, city: "Miami", description: descriptions[i], address: addresses[i], price_per_day: ppd[i])
 end
 
-puts "Villa: #{Villa.all.size}"
+puts "Villa à Miami: #{Villa.all.size}"
 
 # user
 
