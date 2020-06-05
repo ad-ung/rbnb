@@ -106,6 +106,7 @@ villas.each do |villa|
     r = Review.new(content: reviews.sample)
     r.villa = Villa.find_by(name: villa)
     r.user_id = User.all.sample.id
+    r.rating = rand(3..5)
     r.save!
   end
 end
@@ -156,6 +157,17 @@ Villa.all.each_with_index do |villa, i|
   puts villa.img_url
   villa.img_url= img_url[i]
   puts villa.img_url
-  villa.save
+  villa.save!
 end
 
+puts "create villa features"
+
+# guest
+# bedroom
+# bathroom
+
+Villa.all.each_with_index do |villa, i|
+  feature = Feature.new(guest_nb: rand(5..12), bedroom_nb: rand(3..6), bathroom_nb: rand(3..6))
+  feature.villa_id = i + 1
+  feature.save!
+end
