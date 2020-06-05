@@ -23,8 +23,8 @@
       <div class="house-heading__title container">
         <div class="row">
           <div class="col-24">
-            <h1><%= @villa.name %></h1>
-            <h3><%= @villa.city %></h3>
+            <h2 class="house-title__title"><%= @villa.name %></h1>
+            <p style="font-size: 24px"><%= @villa.city %></p>
             <div>
               <!-- <button class="btn house-wishlist__btn btn-sm house-title__button--wishlist btn-light">
                 <i class="far fa-heart" style="padding-right: 10px;"></i> Ajouter aux favoris</button>
@@ -57,19 +57,19 @@
                 <i class="fas fa-quote-left"></i>
                 <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px;"><%= @villa.description %></p>
               </div>
-              <button class="btn house-description__more-button btn-link">
+              <!-- <button class="btn house-description__more-button btn-link">
                 <span>Lire toute la description</span>
                 <div class="collapse-arrow"></div>
-              </button>
+              </button> -->
               <hr class="house-detail__divider">
             </div>
           </div>
           <div>
-            <h4>Fiche technique</h4>
+            <h4>Equipements</h4>
             <div class="row">
               <div class="col-sm-12 col-24">
                 <div class="tag tag-list__tag">
-                  <span class="tag__icon icn-bar">
+                  <i class="fas fa-glass-martini-alt"></i>
                   <span class="tag__text">Bar extérieur</span>
                   </span>
                 </div>
@@ -83,7 +83,7 @@
               </div>
               <div class="col-sm-12 col-24">
                 <div class="tag tag-list__tag">
-                  <span class="tag__icon icn-bar">
+                  <i class="fas fa-umbrella-beach"></i>
                   <span class="tag__text">Plage accessible à pied</span>
                   </span>
                 </div>
@@ -96,17 +96,17 @@
                 <div class="row">
                   <div class="col-sm-12 col-24">
                     <div class="tag tag-list__tag">
-                      <span class="tag__icon icn-bar">
+                      <i class="fas fa-hand-sparkles"></i>
                       <span class="tag__text">Ménage</span>
                     </div>
                   </div>
                   <div class="col-sm-12 col-24">
-                    <span class="tag__icon icn-bar">
-                    <span class="tag__text">Ménage</span>
+                    <i class="fas fa-cookie-bite"></i>
+                    <span class="tag__text">Chef cuisinier</span>
                   </div>
                   <div class="col-sm-12 col-24">
-                    <span class="tag__icon icn-bar">
-                    <span class="tag__text">Ménage</span>
+                    <i class="fas fa-hands-helping"></i>
+                    <span class="tag__text">Conciergerie</span>
                   </div>
                 </div>
               </div>
@@ -131,24 +131,24 @@
                   </div>
                 </div>
                 <div class="house-surroundings__maps">
-                  <div class="col-sm12 col-24">
-                    Commerces accessibles en voiture
-                  </div>
-                  <div class="col-sm12 col-24">
-                    Plages accessibles à pied
-                  </div>
-                  <div class="col-sm12 col-24">
-                    Restaurants et bars accessible à pied
-                  </div>
-                  <div class="col-sm12 col-24">
-                    Centre ville accessible en voiture
-                  </div>
+
                 </div>
                 <div>
                   <div class="house-surroungings__group">
                     <h6 class="house-surroundings_subtitle">A proximité</h6>
                     <div class="row">
-
+                      <div class="col-sm12 col-24">
+                        Commerces accessibles en voiture
+                      </div>
+                      <div class="col-sm12 col-24">
+                        Plages accessibles à pied
+                      </div>
+                      <div class="col-sm12 col-24">
+                        Restaurants et bars accessible à pied
+                      </div>
+                      <div class="col-sm12 col-24">
+                        Centre ville accessible en voiture
+                      </div>
                     </div>
                   </div>
                 </div>

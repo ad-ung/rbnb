@@ -67,7 +67,7 @@
 }
 
 .tag__text {
-  padding: .4rem 1rem 0 0;
+  padding: 0 1rem 0rem 0.5rem;
   font-weight: lighter;
   font-size: 1rem;
 }
@@ -256,6 +256,31 @@
   position: relative;
   padding: 1.5rem 1.5rem 1rem 1.5rem;
   margin: 0 0 1.5rem 0;
+}
+
+.house-services__title {
+  margin: 0 0 1.5rem 0;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 1.5rem;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #202020;
+  font-weight: bold;
+}
+
+h4, .h4 {
+  font-size: 1.875rem;
+}
+
+h2, .h2 {
+  font-size: 2.5rem;
+}
+
+.house-title__title {
+  margin: 0;
 }
 
 // .sticky-bottom {
