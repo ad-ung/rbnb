@@ -1,6 +1,8 @@
 <div class="container">
-  <h1>Villas à <%= params["search"][:city] %></h1>
-  <p><%= "#{params["search"][:guest_nb]} voyageurs du" %></p>
+  <div class="text-center pb-2">
+    <h1>Villas à <%= params["search"][:city] %></h1>
+    <p><%= "#{params["search"][:guest_nb]} voyageurs - du #{params["search"][:starts_on]} au #{params["search"][:ends_on]}" %></p>
+  </div>
   <div class="row">
     <% @villas.each do |villa| %>
       <div class="col-lg-6 col-24">
