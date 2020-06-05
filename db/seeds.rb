@@ -20,6 +20,10 @@ puts "destroy favorite"
 
 Favorite.destroy_all
 
+puts "destroy Feature"
+
+Feature.destroy_all
+
 puts "destroy User"
 
 User.destroy_all
@@ -28,9 +32,6 @@ puts "destroy Villa"
 
 Villa.destroy_all
 
-puts "destroy Feature"
-
-Feature.destroy_all
 
 require "open-uri"
 
@@ -71,9 +72,13 @@ descriptions = [
 
 ppd = [671, 591, 472, 820, 1109, 581, 492, 720]
 
+puts "Creation villa"
+
 villas.each_with_index do |villa, i|
   Villa.create!(name: villa, city: "Miami", description: descriptions[i], address: addresses[i], price_per_day: ppd[i])
 end
+
+puts "Villa: #{Villa.all.size}"
 
 # user
 
@@ -170,7 +175,7 @@ puts "create villa features"
 # bathroom
 
 Villa.all.each_with_index do |villa, i|
-  feature = Feature.new(guest_nb: rand(5..12), bedroom_nb: rand(3..6), bathroom_nb: rand(3..6))
+  feature = Feature.new(guest_nb: [8,12].sample, bedroom_nb: rand(3..6), bathroom_nb: rand(3..6))
   feature.villa_id = i + 1
   feature.save!
 end

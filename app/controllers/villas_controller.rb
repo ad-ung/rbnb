@@ -2,7 +2,10 @@ class VillasController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @villas = Villa.all
+    @villas = []
+    Feature.where(guest_nb: params["search"][:guest_nb]).each do |f|
+      @villas << f.villa
+    end
   end
 
   def show
