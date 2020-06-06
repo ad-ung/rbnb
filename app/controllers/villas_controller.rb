@@ -22,7 +22,7 @@ class VillasController < ApplicationController
   def available?(villa, date_start, date_end)
     result = true
     villa.unavailable_dates.each do |b|
-      if (b.include?(date_start)) && (b.include?(date_end))
+      if (b.include?(date_start)) || (b.include?(date_end))
         result = false
       end
     end
