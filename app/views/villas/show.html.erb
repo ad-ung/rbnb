@@ -10,3 +10,10 @@
 <div class="container spacer">
   <h2><%= @villa.name %></h2>
 </div>
+
+
+<%= simple_form_for([@villa, @booking]) do |f| %>
+  <%= f.input :starts_on, as: :string, label: "Dates", placeholder: "Date d'arrivée", wrapper_html: { class: "inline_field_wrapper" } %>
+  <%= f.input :ends_on, as: :string, label: '&nbsp;'.html_safe, placeholder: "Date de départ", wrapper_html: { class: "inline_field_wrapper" } %>
+  <%= f.submit "Réserver", class: "btn btn-primary btn-lg btn-block btn-booking" %>
+<% end %>

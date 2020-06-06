@@ -3,11 +3,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @villa = Villa.find(params[:id])
+    @villa = Villa.find(params[:villa_id])
     @booking = Booking.new(booking_params)
     @booking.villa = @villa
-    @booking.user = current.user
-    @booking.save
+    @booking.user = current_user
+    @booking.save!
   end
 
   def show
