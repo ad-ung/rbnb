@@ -149,7 +149,8 @@ end
 puts "Favorite: #{Favorite.all.size}"
 
 img_url = [
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/casa_ivana_byzwkf.webp",
+  # "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/casa_ivana_byzwkf.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591259304/villa-alicia-4_ruj24a.webp",
   "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_omnia_xv1d1s.webp",
   "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/the_beach_house_njz173.webp",
   "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_inesta_tkrc31.webp",
