@@ -28,11 +28,11 @@
     </h1>
 
     <%= simple_form_for :search, url: villas_path, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
-      <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: "form-control-lg", id: 'input' } %>
-      <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_start_date', style: "width: 180px; margin: 8px;" } %>
-      <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control-lg bg-white", id:'booking_end_date', style: "width: 180px; margin: 8px;"} %>
-      <%= f.input :number_of_guests, collection: ["Voyageurs",1,2,3,4,5,6,7,8,9,10,11,12], selected: "Voyageurs", label: false, input_html: { class: "custom-select-lg", id: "guests" } %>
-      <%= f.button :submit, "Rechercher", class: "btn btn-info p-1", id:'button-search', style: "display:block;" %>
+      <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: "form-control-lg field", id: 'city' } %>
+      <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control-lg bg-white field", id:'booking_start_date', style: "width: 180px; margin: 8px;" } %>
+      <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control-lg bg-white field", id:'booking_end_date', style: "width: 180px; margin: 8px;"} %>
+      <%= f.input :guest_nb, collection: ["Voyageurs",1,2,3,4,5,6,7,8,9,10,11,12], selected: "Voyageurs", label: false, input_html: { class: "custom-select-lg field", id: "guests" } %>
+      <%= f.button :submit, "Rechercher", disabled: true, class: "btn btn-info p-1", id:'button-search', style: "display:block;" %>
     <% end %>
   </div>
 
@@ -102,7 +102,7 @@
                               <div class="villas-hover">
                                     <div class="villas-hover-content"></div>
                                 </div>
-                                <%= image_tag "https://images.pexels.com/photos/32870/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", class: "img-fluid" %>
+                                <%= image_tag "https://images.pexels.com/photos/32870/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", class: "img-hp" %>
                                </a>
                             <div class="villas-caption">
                                 <div class="villas-caption-heading">Villa Majoris</div>
@@ -118,7 +118,7 @@
                                 <div class="villas-hover">
                                     <div class="villas-hover-content"></div>
                                 </div>
-                                <%= image_tag "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80", class: "img-fluid" %>
+                                <%= image_tag "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80", class: "img-hp" %>
                               </a>
                             <div class="villas-caption">
                                 <div class="villas-caption-heading">Villa César</div>
@@ -132,7 +132,7 @@
                                 <div class="villas-hover">
                                     <div class="villas-hover-content"></div>
                                 </div>
-                                <%= image_tag "https://images.pexels.com/photos/347141/pexels-photo-347141.jpeg?cs=srgb&dl=appartement-architecture-balcon-batiment-347141.jpg&fm=jpg", class: "img-fluid" %>
+                                <%= image_tag "https://images.pexels.com/photos/347141/pexels-photo-347141.jpeg?cs=srgb&dl=appartement-architecture-balcon-batiment-347141.jpg&fm=jpg", class: "img-hp" %>
                                 </a>
                             <div class="villas-caption">
                                 <div class="villas-caption-heading">Villa Arista</div>
@@ -146,7 +146,7 @@
                                 <div class="villas-hover">
                                     <div class="villas-hover-content"></div>
                                 </div>
-                                <%= image_tag "https://images.pexels.com/photos/221457/pexels-photo-221457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", class: "img-fluid" %></a>
+                                <%= image_tag "https://images.pexels.com/photos/221457/pexels-photo-221457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", class: "img-hp" %></a>
                             <div class="villas-caption">
                                 <div class="villas-caption-heading">Villa Matola</div>
                                 <div class="villas-caption-subheading text-muted">Saint-Tropez</div>
@@ -159,7 +159,7 @@
                                 <div class="villas-hover">
                                     <div class="villas-hover-content"></div>
                                 </div>
-                                <%= image_tag "https://images.unsplash.com/photo-1583743089745-1b4da736bd6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", class: "img-fluid" %></a>
+                                <%= image_tag "https://images.unsplash.com/photo-1583743089745-1b4da736bd6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", class: "img-hp" %></a>
                             <div class="villas-caption">
                                 <div class="villas-caption-heading">Villa Pimashu</div>
                                 <div class="villas-caption-subheading text-muted">Lisbonne</div>
@@ -172,7 +172,7 @@
                                 <div class="villas-hover">
                                     <div class="villas-hover-content"></div>
                                 </div>
-                                <%= image_tag "https://images.pexels.com/photos/3797503/pexels-photo-3797503.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", class: "img-fluid" %></a>
+                                <%= image_tag "https://images.pexels.com/photos/3797503/pexels-photo-3797503.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", class: "img-hp" %></a>
                             <div class="villas-caption">
                                 <div class="villas-caption-heading">Villa Myrto</div>
                                 <div class="villas-caption-subheading text-muted">Mykonos</div>

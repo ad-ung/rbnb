@@ -10,15 +10,15 @@ const toggleDateInputs = function() {
     minDate: 'today',
     dateFormat: 'd/m/Y',
     // disable: unvailableDates,
-    // onChange: function(selectedDates, selectedDate) {
-    //   if (selectedDate === '') {
-    //     endDateInput.disabled = true;
-    //   }
-    //   let minDate = selectedDates[0];
-    //   minDate.setDate(minDate.getDate() + 1);
-    //   endDateCalendar.set('minDate', minDate);
-    //   endDateInput.disabled = false;
-    // }
+    onChange: function(selectedDates, selectedDate) {
+      if (selectedDate === '') {
+        endDateInput.disabled = true;
+      }
+      // let minDate = selectedDates[0];
+      // minDate.setDate(minDate.getDate() + 1);
+      // endDateCalendar.set('minDate', minDate);
+      // endDateInput.disabled = false;
+    }
   });
     flatpickr(endDateInput, {
       dateFormat: 'd/m/Y',
@@ -52,4 +52,3 @@ const toggleDateInputs = function() {
 };
 
 export { toggleDateInputs }
-
