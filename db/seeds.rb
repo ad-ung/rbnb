@@ -8,6 +8,34 @@
 
 # villa
 
+puts "destroy booking"
+
+Booking.destroy_all
+
+puts "destroy Review"
+
+Review.destroy_all
+
+puts "destroy favorite"
+
+Favorite.destroy_all
+
+puts "destroy Feature"
+
+Feature.destroy_all
+
+puts "destroy User"
+
+User.destroy_all
+
+puts "destroy Villa"
+
+Villa.destroy_all
+
+
+require "open-uri"
+
+
 villas = [
   "Casa Ivana",
   "Villa Estelle",
@@ -44,11 +72,17 @@ descriptions = [
 
 ppd = [671, 591, 472, 820, 1109, 581, 492, 720]
 
+puts "Creation villa Miami"
+
 villas.each_with_index do |villa, i|
   Villa.create!(name: villa, city: "Miami", description: descriptions[i], address: addresses[i], price_per_day: ppd[i])
 end
 
+puts "Villa à Miami: #{Villa.all.size}"
+
 # user
+
+puts "Creation user"
 
 User.create!(email: "johndoe@gmail.com", pseudo: "John_Doe", password: "topsecret")
 User.create!(email: "cath02@gmail.com", pseudo: "Cath_02", password: "topsecret")
@@ -56,6 +90,8 @@ User.create!(email: "kanita@gmail.com", pseudo: "Kanita", password: "topsecret")
 User.create!(email: "maxou99@gmail.com", pseudo: "Maxou99", password: "topsecret")
 User.create!(email: "aladdin@gmail.com", pseudo: "Aladdin", password: "topsecret")
 User.create!(email: "pierre_martin@gmail.com", pseudo: "Pierre_Martin", password: "topsecret")
+
+puts "User: #{User.all.size}"
 
 # review
 
@@ -72,15 +108,23 @@ reviews = [
  "Je recommande"
 ]
 
+puts "create review"
+
 villas.each do |villa|
   3.times do |i|
-    r = Review.new(content: reviews.sample, user_id: rand(1..6))
+    r = Review.new(content: reviews.sample)
     r.villa = Villa.find_by(name: villa)
+    r.user_id = User.all.sample.id
+    r.rating = rand(3..5)
     r.save!
   end
 end
 
+puts "Review: #{Review.all.size}"
+
 #favorites and bookings for John_Doe
+
+puts "create booking"
 
 villas.each do |villa|
   b = Booking.new(starts_on: "26/07/2020", ends_on: "04/08/2020")
@@ -89,8 +133,50 @@ villas.each do |villa|
   b.save!
 end
 
-3.times do |i|
-  f = Favorite.new(villa_id: i + 1)
+puts "Booking: #{Booking.all.size}"
+
+puts "create favorite"
+
+villas-bis = Villa.all.sample(3)
+
+villas-bis.each do |villa|
+  f = Favorite.new
+  f.villa_id = villa.id
   f.user = User.find_by(pseudo: "John_Doe")
   f.save!
+end
+
+puts "Favorite: #{Favorite.all.size}"
+
+img_url = [
+  # "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/casa_ivana_byzwkf.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591259304/villa-alicia-4_ruj24a.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_omnia_xv1d1s.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/the_beach_house_njz173.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_inesta_tkrc31.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/lake_house_villa_jkm14a.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_carlota_p6bswt.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/tropical_oasis_uuyydk.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_karizma_aq0xkw.webp"
+]
+
+puts "create image url"
+
+Villa.all.each_with_index do |villa, i|
+  puts villa.img_url
+  villa.img_url= img_url[i]
+  puts villa.img_url
+  villa.save!
+end
+
+puts "create villa features"
+
+# guest
+# bedroom
+# bathroom
+
+Villa.all.each_with_index do |villa, i|
+  feature = Feature.new(guest_nb: [8,12].sample, bedroom_nb: rand(3..6), bathroom_nb: rand(3..6))
+  feature.villa_id = i + 1
+  feature.save!
 end

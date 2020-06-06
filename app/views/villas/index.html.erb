@@ -1,2 +1,33 @@
-<h1>Villas#index</h1>
-<p>Find me in app/views/villas/index.html.erb</p>
+<div class="container">
+  <div class="text-center pb-2">
+    <h1>Villas à <%= params["search"][:city] %></h1>
+    <p><%= "#{params["search"][:guest_nb]} voyageurs - du #{params["search"][:starts_on]} au #{params["search"][:ends_on]}" %></p>
+  </div>
+  <div class="row">
+    <% @villas.each do |villa| %>
+      <div class="col-lg-6 col-24">
+        <div class="card">
+          <%= link_to villa_path(villa) do %>
+          <% image_url = villa.img_url.present? ? villa.img_url : "https://res.cloudinary.com/datbhgbcq/image/upload/v1591214712/villa-alicia_vqrvhj.webp" %>
+            <div class="card-img" style="background-image: url('<%= image_url %>');">
+            </div>
+          <% end %>
+          <div class="card-infos">
+            <h2><%= villa.name %></h2>
+            <p><%= villa.city %></p>
+            <p>A partir de <%= villa.price_per_day %>€ /nuit</p>
+          </div>
+          <div class="card-tag">
+            <div class="card-icon">
+              <div class="icn">
+                <i class="fas fa-user-friends"><span class="tag__text"> <%= villa.feature.guest_nb %></span></i>
+                <i class="fas fa-bed"><span class="tag__text"> <%= villa.feature.bedroom_nb %></span></i>
+                <i class="fas fa-bath"><span class="tag__text"> <%= villa.feature.bathroom_nb %></span></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

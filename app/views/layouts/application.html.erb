@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rbnb</title>
+    <title>villas-de-reve</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
   </head>
 
   <body class="bg-white">
 
-    <%= render 'shared/navbar' %>
-    <!-- bouton d'essai pour sign_in/logout, à intégrer dans la navbar -->
-    <% if user_signed_in? %>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <%= t ".sign_out", default: "Log out" %>
-      <% end %>
-    <% else %>
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path  %>
-    <% end %>
-
+    <%= render 'shared/navbar' unless @disable_nav %>
     <%= render 'shared/flashes' %>
+
     <%= yield %>
+
+    <%= render 'shared/footer' unless @disable_nav %>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </body>
 </html>
+
