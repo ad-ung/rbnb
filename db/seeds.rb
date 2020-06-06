@@ -20,6 +20,10 @@ puts "destroy favorite"
 
 Favorite.destroy_all
 
+puts "destroy Feature"
+
+Feature.destroy_all
+
 puts "destroy User"
 
 User.destroy_all
@@ -27,6 +31,7 @@ User.destroy_all
 puts "destroy Villa"
 
 Villa.destroy_all
+
 
 require "open-uri"
 
@@ -67,9 +72,13 @@ descriptions = [
 
 ppd = [671, 591, 472, 820, 1109, 581, 492, 720]
 
+puts "Creation villa Miami"
+
 villas.each_with_index do |villa, i|
   Villa.create!(name: villa, city: "Miami", description: descriptions[i], address: addresses[i], price_per_day: ppd[i])
 end
+
+puts "Villa à Miami: #{Villa.all.size}"
 
 # user
 
@@ -140,7 +149,8 @@ end
 puts "Favorite: #{Favorite.all.size}"
 
 img_url = [
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/casa_ivana_byzwkf.webp",
+  # "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/casa_ivana_byzwkf.webp",
+  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591259304/villa-alicia-4_ruj24a.webp",
   "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_omnia_xv1d1s.webp",
   "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/the_beach_house_njz173.webp",
   "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_inesta_tkrc31.webp",
@@ -166,7 +176,7 @@ puts "create villa features"
 # bathroom
 
 Villa.all.each_with_index do |villa, i|
-  feature = Feature.new(guest_nb: rand(5..12), bedroom_nb: rand(3..6), bathroom_nb: rand(3..6))
+  feature = Feature.new(guest_nb: [8,12].sample, bedroom_nb: rand(3..6), bathroom_nb: rand(3..6))
   feature.villa_id = i + 1
   feature.save!
 end
