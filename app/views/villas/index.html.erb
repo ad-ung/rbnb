@@ -14,12 +14,12 @@
           <% end %>
           <div class="card-infos">
             <h2><%= villa.name %></h2>
-            <p><%= villa.city %></p>
-            <p>A partir de <%= villa.price_per_day %>€ /nuit</p>
+            <h5><%= villa.city %></h5>
+            <h5>A partir de <%= villa.price_per_day %>€ /nuit</h5>
           </div>
           <div class="card-tag">
             <div class="card-icon">
-              <div class="icn">
+              <div class="icn-index">
                 <i class="fas fa-user-friends"><span class="tag__text"> <%= villa.feature.guest_nb %></span></i>
                 <i class="fas fa-bed"><span class="tag__text"> <%= villa.feature.bedroom_nb %></span></i>
                 <i class="fas fa-bath"><span class="tag__text"> <%= villa.feature.bathroom_nb %></span></i>
