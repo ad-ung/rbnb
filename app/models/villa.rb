@@ -9,4 +9,10 @@ class Villa < ApplicationRecord
   validates :city, presence: true
   validates :price_per_day, presence: true, numericality: { only_integer: true }
   validates :address, presence: true
+
+  def unavailable_dates_bis #for datepicker only
+    bookings.pluck(:starts_on, :ends_on).map do |range|
+      { from: range[0].strftime("%d/%m/%Y"), to: range[1].strftime("%d/%m/%Y") }
+    end
+  end
 end

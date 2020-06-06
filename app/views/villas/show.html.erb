@@ -180,12 +180,12 @@
                     </p>
                   </div>
                 </div>
-                <div class="date-picker">
-
-                </div>
-                <button class="btn btn-secondary btn-block">
-                  Réservez maintenant !
-                </button>
+                <div class="widget-content" data-unavailable="<%= @villa.unavailable_dates_bis.to_json %>">
+                <%= simple_form_for [@villa, @booking] do |f| %>
+                  <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control bg-white", id:'booking_start_date_bis' } %>
+                  <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control bg-white", id:'booking_end_date_bis' } %>
+                  <%= f.button :submit, "Réserver maintenant !", class: "btn btn-secondary btn-block" %>
+                <% end %>
                 <div class="inquiry-date-picker__contact">
                   <p>Ou contactez-nous</p>
                   <a href="#" class="inquiry-date-picker__phone">

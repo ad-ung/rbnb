@@ -34,9 +34,9 @@ import { initUpdateNavbarOnScroll } from '../components/navbar-hp';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  loadDynamicBannerText();
   toggleDateInputs();
   arrowOpacity();
   initUpdateNavbarOnScroll();
+  loadDynamicBannerText();
 });
 
