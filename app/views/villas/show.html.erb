@@ -10,6 +10,7 @@
             <div class="row">
               <div class="col">
                 <div class="house-carousel__btn-container">
+
                   <button class="btn house-wishlist__btn btn-sm btn-light">
                     <i class="far fa-heart" style="padding-right: 10px;"></i>
                     Ajouter aux favoris
@@ -204,3 +205,21 @@
     </div>
   </div>
 </div>
+
+
+                <%= simple_form_for [ @villa, @favoris ] do |f| %>
+                <% f.association :user, :input_html => { :value => current_user.id }%>
+                <% f.association :villa %>
+                 <button class="btn house-wishlist__btn btn-sm btn-light">
+                    <i class="far fa-heart" style="padding-right: 10px;"></i>
+                <%= f.submit "Favoris", class: "far fa-heart" %>
+                <% end %>
+                </button>
+
+
+                <ul>
+                  <% @favorites.each do |favorite| %>
+                    <li><%= favorite.villa.name %> <%= favorite.villa.city %></li>
+                  <% end %>
+              </ul>
+

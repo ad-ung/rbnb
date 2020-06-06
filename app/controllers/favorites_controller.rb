@@ -1,15 +1,16 @@
 class FavoritesController < ApplicationController
-  before_action :set_villa, except: [:index]
+
   def index
     @favorites = Favorite.all
   end
 
   def show
-    @favorite = Favorite.find(params[:id])
+    @favorite = Favorite.find(params[:villa_id])
     #@villa = @favorite.villa
   end
 
   def create
+    @villa = Villa.find(params[:villa_id])
     @favoris = Favorite.new
     @favoris.villa = @villa
     @favoris.user = current_user
@@ -20,6 +21,6 @@ class FavoritesController < ApplicationController
   private
 
   def set_villa
-    @villa = Villa.find(params[:id])
+    @villa = Villa.find(params[:villa_id])
   end
 end
