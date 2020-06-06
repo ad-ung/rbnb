@@ -25,9 +25,10 @@ require("channels")
 // External imports
 import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
-import { toggleDateInputs } from '../components/calendar';
+import { datePickerHomePage } from '../components/calendar';
 import { arrowOpacity } from '../components/arrow';
 import { initUpdateNavbarOnScroll } from '../components/navbar-hp';
+import { enableButton } from '../components/button-hp';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -35,8 +36,9 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   loadDynamicBannerText();
-  toggleDateInputs();
+  datePickerHomePage();
   arrowOpacity();
   initUpdateNavbarOnScroll();
+  enableButton();
 });
 
