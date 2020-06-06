@@ -19,6 +19,13 @@ class Booking < ApplicationRecord
   validates :starts_on, :ends_on, presence: true, availability: true
   validate :ends_on_after_starts_on
 
+
+   def unavailable_dates
+    bookings.pluck(:starts_on, :ends_on).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
+
   private
 
   def ends_on_after_starts_on
