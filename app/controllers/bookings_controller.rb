@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.villa = @villa
     @booking.user = current_user
-    @booking.save!
+    @booking.save
   end
 
   def show
@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:starts_on, :ends_on)
   end
 end
 
