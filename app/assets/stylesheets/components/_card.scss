@@ -176,24 +176,24 @@
   border-radius: .125rem;
 }
 
-// .btn {
-//   display: inline-block;
-//   font-weight: 700;
-//   color: #202020;
-//   text-align: center;
-//   vertical-align: middle;
-//   -webkit-user-select: none;
-//   -moz-user-select: none;
-//   -ms-user-select: none;
-//   user-select: none;
-//   background-color: #ffffff;
-//   border: 1px solid transparent;
-//   padding: .875rem 1.5rem;
-//   font-size: 1rem;
-//   line-height: 1.2;
-//   border-radius: .125rem;
-//   transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
-// }
+.btn-book {
+  display: inline-block;
+  font-weight: 700;
+  color: #202020;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  padding: .875rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  border-radius: .125rem;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
 
 .add-to-favorite {
   position: relative;

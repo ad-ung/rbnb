@@ -8,8 +8,6 @@ const toggleDateInputs = function() {
   const endDateInput2 = document.getElementById('booking_end_date_bis');
 
   if (startDateInput && endDateInput) {
-    // const unvailableDates = JSON.parse(document.querySelector('.widget-content').dataset.unavailable)
-
     flatpickr(startDateInput, {
       minDate: 'today',
       dateFormat: 'd/m/Y',
@@ -18,7 +16,7 @@ const toggleDateInputs = function() {
   }
 
   if (startDateInput2 && endDateInput2) {
-    const unvailableDates = JSON.parse(document.querySelector('.widget-content').dataset.unavailable)
+    const unvailableDates = JSON.parse(document.querySelector('.widget-content').dataset.unavailable);
     flatpickr(startDateInput2, {
       minDate: 'today',
       dateFormat: 'd/m/Y',
