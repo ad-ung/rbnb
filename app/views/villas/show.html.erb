@@ -3,9 +3,7 @@
     <div class="house-heading__container">
       <div class="house-heading__pictures">
         <div class="house-carousel">
-          <div class="house-carousel__fullscreen-img">
-            <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/c_scale,h_673,w_1224/v1591265093/villa-alicia-5_qqvmco.webp" %>
-          </div>
+          <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/v1591265093/villa-alicia-5_qqvmco.webp", class: "house-carousel__fullscreen-img" %>
           <div class="container">
             <div class="row">
               <div class="col">
@@ -53,12 +51,10 @@
 
             </div>
             <div class="house-description">
-              <div class="house-description__container" style="overflow: visible;">
+              <div class="house-description__container position-relative" style="overflow: visible;">
                 <i class="fas fa-quote-left"></i>
                 <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px;"><%= @villa.description %></p>
-              </div>
-              <div style="text-align: right">
-                <i class="fas fa-quote-right"></i>
+                <i class="fas fa-quote-right position-absolute" style="right:-5px;"></i>
               </div>
               <!-- <button class="btn house-description__more-button btn-link">
                 <span>Lire toute la description</span>
