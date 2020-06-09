@@ -176,10 +176,12 @@
                     </p>
                   </div>
                 </div>
-                <div class="widget-content" data-unavailable="<%= @villa.unavailable_dates_bis.to_json %>">
+                <div class="widget-content position-relative" data-unavailable="<%= @villa.unavailable_dates_bis.to_json %>">
                 <%= simple_form_for [@villa, @booking] do |f| %>
                   <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control bg-white", id:'booking_start_date_bis' } %>
                   <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control bg-white", id:'booking_end_date_bis' } %>
+                  <p id="night_nb"><strong>Total :</strong></p>
+                  <p id="total_price" data-ppd = "<%=@villa.price_per_day%>"class="position-absolute" style="right:10px; top: 91px;"><strong>Prix</strong></p>
                   <%= f.button :submit, "Réserver maintenant !", class: "btn-book btn-secondary btn-block", data: { target: "#exampleModalCenter", toggle: "modal" } %>
                 <% end %>
                 <div class="inquiry-date-picker__contact">
