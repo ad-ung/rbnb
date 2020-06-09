@@ -1,4 +1,7 @@
 class Villa < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   has_many :bookings
   has_many :reviews
   has_many :favorites

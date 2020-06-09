@@ -15,6 +15,13 @@ class VillasController < ApplicationController
   def show
     @villa = Villa.find(params[:id])
     @booking = Booking.new
+
+    @villa = Villa.geocoded
+
+    @markers = {
+      lat: Villa.latitude,
+      lng: Villa.longitude
+    }
   end
 
   private

@@ -127,8 +127,11 @@
                     </div>
                   </div>
                 </div>
-                <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/v1591439753/map-villa_rtnsgg.png", class: "house-surroundings__maps" %>
-
+                <div id="map"
+                     class="house-surroundings__maps"
+                     data-markers="<%= @markers.to_json %>"
+                     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+                </div>
                 <div>
                   <div class="house-surroungings__group">
                     <h6 class="house-surroundings_subtitle">A proximité</h6>
