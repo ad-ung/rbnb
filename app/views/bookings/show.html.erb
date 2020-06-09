@@ -1,2 +1,195 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="default-layout__content">
+  <div class="house-slug__container">
+    <div class="house-heading__container">
+      <div class="house-heading__pictures">
+        <div class="house-carousel">
+          <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/v1591265093/villa-alicia-5_qqvmco.webp", class: "house-carousel__fullscreen-img" %>
+          <div class="container">
+            <div class="row">
+              <div class="house-carousel__btn-container">
+                <button class="btn house-wishlist__btn btn-sm btn-light">
+                  <i class="far fa-heart" style="padding-right: 10px;"></i>
+                  Ajouter aux favoris
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="house-heading__title container mt-2">
+        <div class="row">
+          <div class="col-24">
+            <h2 class="house-title__title"><%= @booking.villa.name %></h1>
+            <p style="font-size: 24px"><%= @booking.villa.city %></p>
+            <div>
+              <!-- <button class="btn house-wishlist__btn btn-sm house-title__button--wishlist btn-light">
+                <i class="far fa-heart" style="padding-right: 10px;"></i> Ajouter aux favoris</button>
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="house-detail col-lg-15 col-24">
+          <div>
+            <div class="tag house-details__tag icn-show">
+              <i class="fas fa-user-friends"><span class="tag__text"> 10</span></i>
+            </div>
+            <div class="tag house-details__tag icn-show">
+              <i class="fas fa-bed"><span class="tag__text"> 5</span></i>
+            </div>
+            <div class="tag house-details__tag icn-show">
+              <i class="fas fa-bath"><span class="tag__text"> 5</span></i>
+            </div>
+          </div>
+          <div class="house-detail_booking-description">
+            <div class="house-detail_booking-block">
+
+            </div>
+            <div class="house-description mr-4">
+              <div class="house-description__container position-relative" style="overflow: visible;">
+                <i class="fas fa-quote-left"></i>
+                <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px;"><%= @booking.villa.description %></p>
+                <i class="fas fa-quote-right position-absolute" style="right:-5px;"></i>
+              </div>
+              <!-- <button class="btn house-description__more-button btn-link">
+                <span>Lire toute la description</span>
+                <div class="collapse-arrow"></div>
+              </button> -->
+              <hr class="house-detail__divider">
+            </div>
+          </div>
+          <div>
+            <h4>Equipements</h4>
+            <div class="row">
+              <div class="col-sm-12 col-24">
+                <div class="tag tag-list__tag">
+                  <i class="fas fa-glass-martini-alt"></i>
+                  <span class="tag__text">Bar extérieur</span>
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-12 col-24">
+                <div class="tag tag-list__tag">
+                  <i class="fas fa-swimming-pool"></i>
+                  <span class="tag__text">Piscine chauffée</span>
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-12 col-24">
+                <div class="tag tag-list__tag">
+                  <i class="fas fa-umbrella-beach"></i>
+                  <span class="tag__text">Plage accessible à pied</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <hr class="house-detail__divider mr-4">
+            <div>
+              <h4>Services inclus</h4>
+              <div class="house-services__frame mr-4">
+                <div class="row">
+                  <div class="col-sm-12 col-24">
+                    <div class="tag tag-list__tag">
+                      <i class="fas fa-hand-sparkles"></i>
+                      <span class="tag__text">Ménage</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-24">
+                    <i class="fas fa-cookie-bite"></i>
+                    <span class="tag__text">Chef cuisinier</span>
+                  </div>
+                  <div class="col-sm-12 col-24">
+                    <i class="fas fa-hands-helping"></i>
+                    <span class="tag__text">Conciergerie</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="house-detail__divider mr-4">
+            <div class="house-surroudning">
+              <h4 class="house-surrending__title">Les alentours</h4>
+              <p class="house-surrounding__text"></p>
+              <div class="house-surrounding__setting">
+                <div class="row">
+                  <div class="col-sm-12 col-24">
+                    <div class="tag tag-list__tag">
+                      <span class="tag__icon icn icn-panoramic-mountain"></span>
+                      <span class="tag__text">Vue montagne</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-24">
+                    <div class="tag tag-list__tag">
+                      <span class="tag__icon icn icn-panoramic-mountain"></span>
+                      <span class="tag__text">Vue mer</span>
+                    </div>
+                  </div>
+                </div>
+                <div id="map"
+                     class="house-surroundings__maps"
+                     data-markers="<%= @markers.to_json %>"
+                     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+                </div>
+                <div>
+                  <div class="house-surroungings__group">
+                    <h6 class="house-surroundings_subtitle">A proximité</h6>
+                    <div class="row">
+                      <div class="col-sm12 col-24">
+                        Commerces accessibles en voiture
+                      </div>
+                      <div class="col-sm12 col-24">
+                        Plages accessibles à pied
+                      </div>
+                      <div class="col-sm12 col-24">
+                        Restaurants et bars accessible à pied
+                      </div>
+                      <div class="col-sm12 col-24">
+                        Centre ville accessible en voiture
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="sticky-right house-inquiry__sticky-right">
+            <div id="inquiry" class="inquiry-block">
+              <div>
+                <div class="row">
+                  <div class="col">
+                    <h5 class="inquiry-date-picker__title">
+                      <%= @booking.villa.name %>
+                    </h5>
+                    <p class="inquiry-date-picker__price-from">
+                      A partir de <%= @booking.villa.price_per_day %> € /nuit
+                    </p>
+                    <hr class="inquiry-date-picker__divider">
+                    <h5 class="inquiry-date-picker__title mb-4">
+                      Confirmation de réservation
+                    </h5>
+                    <h5><%="Arrivée :  #{@booking.starts_on.strftime("%d/%m/%Y")} à 15:00" %></h5>
+                    <h5><%="Départ :  #{@booking.ends_on.strftime("%d/%m/%Y")} à 11:00" %></h5>
+                    <p class="mt-4">Coût total : <%= number_with_delimiter((@booking.ends_on - @booking.starts_on).to_i * @booking.villa.price_per_day, :delimiter => ' ') %>€</p>
+                  </div>
+                </div>
+                <hr class="inquiry-date-picker__divider">
+                <div class="inquiry-date-picker__contact mb-3">
+                  <a href="#" class="inquiry-date-picker__phone">
+                  Contactez le propriétaire
+                  </a>
+                  <br>
+                  <br>
+                  <%= link_to "Laisser un commentaire", "#", class: "inquiry-date-picker__phone" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
