@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="text-center pb-2">
-    <h1>Villas à <%= params["search"][:city] %></h1>
-    <p><%= "#{params["search"][:guest_nb]} voyageurs - du #{params["search"][:starts_on]} au #{params["search"][:ends_on]}" %></p>
+  <div class="text-center pb-3">
+    <h1 class="mb-2">Villas à <%= params["search"][:city] %></h1>
+    <p class="mt-0"><%= "#{params["search"][:guest_nb]} voyageurs - du #{params["search"][:starts_on]} au #{params["search"][:ends_on]}" %></p>
   </div>
   <div class="row">
     <% @villas.each do |villa| %>
@@ -12,17 +12,17 @@
             <div class="card-img" style="background-image: url('<%= image_url %>');">
             </div>
           <% end %>
-          <div class="card-infos">
-            <h2><%= villa.name %></h2>
+          <div class="card-infos position-relative mb-2">
+            <h2 class="mt-2 mb-3"><%= villa.name %></h2>
             <h5><%= villa.city %></h5>
-            <h5>A partir de <%= villa.price_per_day %>€ /nuit</h5>
-          </div>
-          <div class="card-tag">
-            <div class="card-icon">
-              <div class="icn-index">
-                <i class="fas fa-user-friends"><span class="tag__text"> <%= villa.feature.guest_nb %></span></i>
-                <i class="fas fa-bed"><span class="tag__text"> <%= villa.feature.bedroom_nb %></span></i>
-                <i class="fas fa-bath"><span class="tag__text"> <%= villa.feature.bathroom_nb %></span></i>
+            <h5 class="position-absolute" style="right:16px; bottom:-2px;">A partir de <%= villa.price_per_day %>€ /nuit</h5>
+            <div class="card-tag">
+              <div class="card-icon">
+                <div class="icn-index">
+                  <i class="fas fa-user-friends"><span class="tag__text"> <%= villa.feature.guest_nb %></span></i>
+                  <i class="fas fa-bed"><span class="tag__text"> <%= villa.feature.bedroom_nb %></span></i>
+                  <i class="fas fa-bath"><span class="tag__text"> <%= villa.feature.bathroom_nb %></span></i>
+                </div>
               </div>
             </div>
           </div>
