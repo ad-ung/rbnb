@@ -29,6 +29,7 @@ import { toggleDateInputs } from '../components/calendar';
 import { arrowOpacity } from '../components/arrow';
 import { initUpdateNavbarOnScroll } from '../components/navbar-hp';
 import { enableButton } from '../components/button-hp';
+import { showLocation } from '../components/location';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -41,5 +42,6 @@ arrowOpacity();
 initUpdateNavbarOnScroll();
 enableButton();
 loadDynamicBannerText();
+showLocation();
 });
 
