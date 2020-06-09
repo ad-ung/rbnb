@@ -22,5 +22,4 @@ class Villa < ApplicationRecord
       { from: range[0].strftime("%d/%m/%Y"), to: range[1].strftime("%d/%m/%Y") }
     end
   end
-
 end
