@@ -1,6 +1,4 @@
 class BookingsController < ApplicationController
-  def index
-  end
 
   def create
     @villa = Villa.find(params[:villa_id])
@@ -10,7 +8,12 @@ class BookingsController < ApplicationController
     @booking.save
   end
 
+  def index
+    @bookings = Booking.all
+  end
+
   def show
+    @booking = Booking.find(params[:id])
   end
 
   private
