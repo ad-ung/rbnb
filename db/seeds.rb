@@ -175,8 +175,8 @@ puts "create villa features"
 # bedroom
 # bathroom
 
-Villa.all.each_with_index do |villa, i|
-  feature = Feature.new(guest_nb: [8,12].sample, bedroom_nb: rand(3..6), bathroom_nb: rand(3..6))
-  feature.villa_id = i + 1
-  feature.save!
-end
+# Villa.all.each_with_index do |villa, i|
+#   feature = Feature.new(guest_nb: [8,12].sample, bedroom_nb: rand(3..6), bathroom_nb: rand(3..6))
+#   feature.villa_id = i + 1
+#   feature.save!
+# end
