@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get "bookings", to: "bookings#index"
-  get "bookings/:id", to: "bookings#show"
+  get "bookings/:id", to: "bookings#show", as: :booking
   get "favorites", to: "favorites#index"
 
   resources :villas, only: [:index, :show] do

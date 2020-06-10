@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
       lat: @booking.villa.latitude,
       lng: @booking.villa.longitude
     } ]
+    @review = Review.new
   end
 
   private
