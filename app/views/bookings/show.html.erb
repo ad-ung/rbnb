@@ -181,7 +181,7 @@
                 </div>
                 <hr class="inquiry-date-picker__divider">
                 <div class="inquiry-date-picker__contact mb-3">
-                  <% if @booking.villa.reviews.where(user: current_user) %>
+                  <% if @booking.villa.reviews.find_by(user: current_user) %>
                     <button type="button" disabled=true id="btn-review" class="btn-book btn-secondary btn-block" data-toggle="modal" data-target="#exampleModalCenter">
                       Laisser un commentaire
                     </button>
