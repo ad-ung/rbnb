@@ -1,8 +1,4 @@
 class ReviewsController < ApplicationController
-  # def new
-  #   @villa = Villa.find(params[:villa_id])
-  #   @review = Review.new
-  # end
 
   def create
     @review = Review.new(review_params)

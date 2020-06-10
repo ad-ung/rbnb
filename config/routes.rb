@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :villas, only: [:index, :show] do
     resources :bookings, only: [:create]
     resources :favorites, only: [:create]
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
   devise_for :users
 end
