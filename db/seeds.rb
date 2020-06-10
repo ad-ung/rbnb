@@ -108,11 +108,29 @@ reviews = [
  "Je recommande"
 ]
 
+reviews_title = [
+"Le paradis",
+"Un séjour de rêve",
+"Les meilleures vacances de toute ma vie",
+"Le rêve absolu",
+"Inimaginable",
+"Magique",
+"Magnifique"
+]
+
+reviews_stay = [
+"4 jours à Miami",
+"10 jours à l'Île Maurice",
+"15 jours à Bahamas",
+"8 jours à Los Angeles",
+"7 jours à Val d'Isère"
+]
+
 puts "create review"
 
 villas.each do |villa|
   3.times do |i|
-    r = Review.new(content: reviews.sample)
+    r = Review.new(content: reviews.sample, title: reviews_title.sample, stay: reviews_stay.sample)
     r.villa = Villa.find_by(name: villa)
     r.user_id = User.all.sample.id
     r.rating = rand(3..5)

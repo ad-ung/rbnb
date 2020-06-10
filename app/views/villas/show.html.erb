@@ -153,6 +153,30 @@
                 </div>
               </div>
             </div>
+            <div>
+              <div class="house-reviews__title">
+                <h4>Ils ont aimé cette villa</h4>
+              </div>
+              <div class="house-reviews__text">
+                <p>Nous nous engagons à vous trouver la meilleure villa pour des expériences inoubliables.</p>
+              </div>
+              <div class="base-review house-reviews-container">
+                <ul>
+                  <% @villa.reviews.each do |review| %>
+                  <div class="base-review-container mb-4">
+                     <div class="base-review__title">
+                       <li class="list-group"><strong><%= review.title %></strong></li>
+                     </div>
+                      <li class="list-group"><%= review.content %></li>
+                    <div class="base-review__footer">
+                      <li class="list-group"><%= review.user[:pseudo] %></li>
+                      <li class="list-group"><%= review.rating %> / 5</li>
+                    </div>
+                  </div>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-lg-8">
