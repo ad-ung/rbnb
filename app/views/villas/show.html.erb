@@ -207,14 +207,22 @@
 </div>
 
 
-                <%= simple_form_for [ @villa, @favoris ] do |f| %>
-                <% f.association :user, :input_html => { :value => current_user.id }%>
-                <% f.association :villa %>
+                <%= simple_form_for [ @villa, @favorite ] do |f| %>
+                <% f.input :user, :input_html => { :value => current_user.id }%>
+                <% f.input :villa, :input_html => { :value => @villa }%>
                  <button class="btn house-wishlist__btn btn-sm btn-light">
                     <i class="far fa-heart" style="padding-right: 10px;"></i>
                 <%= f.submit "Favoris", class: "far fa-heart" %>
                 <% end %>
                 </button>
+
+
+
+                    <button class="btn house-wishlist__btn btn-sm btn-light">
+                    <i class="far fa-heart" style="padding-right: 10px;"></i>
+                    <%=link_to 'Retirer des favoris', favorite_path(@favorite), method: :delete %>
+                  </button>
+
 
 
                 <ul>
