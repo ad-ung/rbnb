@@ -168,9 +168,9 @@
                       A partir de <%= @booking.villa.price_per_day %> € /nuit
                     </p>
                     <hr class="inquiry-date-picker__divider">
-                    <h5 class="inquiry-date-picker__title mb-4">
-                      Confirmation de réservation
-                    </h5>
+                    <h6 class="mb-4">
+                      Votre réservation
+                    </h6>
                     <h5><%="Arrivée :  #{@booking.starts_on.strftime("%d/%m/%Y")} à 15:00" %></h5>
                     <h5><%="Départ :  #{@booking.ends_on.strftime("%d/%m/%Y")} à 11:00" %></h5>
                     <p class="mt-4">Coût total : <%= number_with_delimiter((@booking.ends_on - @booking.starts_on).to_i * @booking.villa.price_per_day, :delimiter => ' ') %>€</p>
