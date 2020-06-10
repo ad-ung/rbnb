@@ -432,6 +432,35 @@ hr {
   max-width: 100%;
 }
 
+ul {
+  padding-inline-start: 0px;
+}
+
+.base-review__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.list-group {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+}
+
+.base-review-container {
+  border: 1px solid #DDDDDD;
+}
+
+.checked {
+  color: orange;
+}
+
+.unchecked {
+  color: grey;
+}
+
 @media (min-width: 992px) {
 .house-carousel__fullscreen-img {
     height: 70vh;
