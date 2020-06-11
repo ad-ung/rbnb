@@ -3,9 +3,9 @@ class VillasController < ApplicationController
 
   def index # ne montre que les résultats de la searchbar de la homepage
     @villas = []
-    Feature.where(guest_nb: params["search"][:guest_nb]).each do |f|
+    Feature.where("guest_nb >= ?", params["search"][:guest_nb]).each do |f|
       if available?(f.villa, params["search"][:starts_on].to_date, params["search"][:ends_on].to_date)
-        if f.villa.city = params["search"][:city]
+        if f.villa.city == params["search"][:city]
           @villas << f.villa
         end
       end
@@ -15,6 +15,10 @@ class VillasController < ApplicationController
   def show
     @villa = Villa.find(params[:id])
     @booking = Booking.new
+    @markers = [ {
+      lat: @villa.latitude,
+      lng: @villa.longitude
+    } ]
   end
 
   private

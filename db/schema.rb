@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_194633) do
+ActiveRecord::Schema.define(version: 2020_06_10_153928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_194633) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "rating"
+    t.string "title"
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["villa_id"], name: "index_reviews_on_villa_id"
   end
@@ -99,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_06_04_194633) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "img_url"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
