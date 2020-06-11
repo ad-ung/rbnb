@@ -70,12 +70,24 @@ descriptions = [
   "Magnifique villa de luxe au bord de l’eau. Une grande cuisine toute équipée possède un ilot central imposant avec plan de travail en granit. Une grande salle à manger est prévue pour accueillir de nombreux convives. A l’entrée, un grand séjour et un bureau fermé. Double vitrage partout, air conditionné, portes en bois massif… Dehors, une sublime piscine moderne avec terrasse ombragée, salon extérieur et ponton au bord de l’eau. Un garage pour une voiture, un dressing et une buanderie complètent ce bien."
 ]
 
+# cities = ["Porto-Vecchio",
+#   "Bonifacio",
+#   "Megève",
+#   "Val d'Isère",
+#   "Saint-tropez",
+#   "Cap Ferret",
+#   "Acapulco",
+#   "Saint-Barthélémy"
+# ]
+
+ratings = [4, 5, 4, 5, 5, 3, 4, 5]
+
 ppd = [671, 591, 472, 820, 1109, 581, 492, 720]
 
 puts "Creation villa Miami"
 
 villas.each_with_index do |villa, i|
-  Villa.create!(name: villa, city: "Miami", description: descriptions[i], address: addresses[i], price_per_day: ppd[i])
+  Villa.create!(name: villa, city: "Porto-Vecchio", description: descriptions[i], address: addresses[i], price_per_day: ppd[i])
 end
 
 puts "Villa à Miami: #{Villa.all.size}"
@@ -108,11 +120,21 @@ reviews = [
  "Je recommande"
 ]
 
+reviews_title = [
+"Le paradis",
+"Un séjour de rêve",
+"Les meilleures vacances de toute ma vie",
+"Le rêve absolu",
+"Inimaginable",
+"Magique",
+"Magnifique"
+]
+
 puts "create review"
 
 villas.each do |villa|
   3.times do |i|
-    r = Review.new(content: reviews.sample)
+    r = Review.new(content: reviews.sample, title: reviews_title.sample)
     r.villa = Villa.find_by(name: villa)
     r.user_id = User.all.sample.id
     r.rating = rand(3..5)

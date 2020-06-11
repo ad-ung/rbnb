@@ -280,6 +280,7 @@ h1, h2, h3, h4, .h1, .h2, .h3, .h4,  {
   line-height: 1.2;
   color: #202020;
   font-weight: bold;
+  margin-top: 2rem;
 }
 
 h5, h6, .h5, .h6 {
@@ -288,6 +289,7 @@ h5, h6, .h5, .h6 {
   font-weight: 700;
   line-height: 1.2;
   color: #202020;
+  margin-top: 1rem;
 }
 
 h4, .h4 {
@@ -432,6 +434,43 @@ hr {
   max-width: 100%;
 }
 
+// .base-review {
+//   position: relative;
+//   border: 1px solid #eaeaea;
+//   border-radius: .25rem;
+//   padding: 2rem 3rem;
+// }
+
+ul {
+  padding-inline-start: 0px;
+}
+
+.base-review__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.list-group {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+}
+
+.list-group__icn {
+  line-height: 1;
+  font-size: 1.5rem;
+}
+
+.icn__rating {
+ padding: 0.75rem 1.25rem;
+}
+
+.base-review-container {
+  border: 1px solid #DDDDDD;
+}
+
 @media (min-width: 992px) {
 .house-carousel__fullscreen-img {
     height: 70vh;
@@ -444,11 +483,16 @@ hr {
   }
 }
 
-@media (min-width: 576px) {
+// @media (min-width: 576px) {
+// .col-sm-12 {
+//   flex: 0 0 50%;
+//   max-width: 50%;
+//   }
+// }
+
 .col-sm-12 {
   flex: 0 0 50%;
   max-width: 50%;
-  }
+  padding-right: 8px;
+  padding-left: 8px;
 }
-
-
