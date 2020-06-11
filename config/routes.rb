@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :villas, only: [:index, :show] do
     resources :bookings, only: [:index, :show, :create]
-    resources :favorites, only: [:index, :create, :update, :delete]
+    resources :favorites, only: [:index, :create, :destroy]
     resources :reviews, only: [:new, :create]
   end
   devise_for :users
