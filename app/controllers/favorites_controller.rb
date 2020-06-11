@@ -20,7 +20,6 @@ class FavoritesController < ApplicationController
     Favorite.destroy(@favorite.first.id)
   end
 
-  private
 
 
 end

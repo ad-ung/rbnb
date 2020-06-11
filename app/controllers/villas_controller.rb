@@ -22,7 +22,7 @@ class VillasController < ApplicationController
     if !@favorite.exists?
       @favorite = nil
     end
-    @favorites = Favorite.all
+
   end
 
 end
