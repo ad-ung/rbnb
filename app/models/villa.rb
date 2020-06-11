@@ -11,7 +11,7 @@ class Villa < ApplicationRecord
   validates :address, presence: true
 
   def unavailable_dates
-    bookings.map { |b| b.starts_on..b.ends_on } [0]
+    bookings.map { |b| b.starts_on..b.ends_on }
   end
 
   def unavailable_dates_bis #for datepicker only

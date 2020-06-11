@@ -3,24 +3,20 @@
     <div class="house-heading__container">
       <div class="house-heading__pictures">
         <div class="house-carousel">
-          <div class="house-carousel__fullscreen-img">
-            <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/c_scale,h_673,w_1224/v1591265093/villa-alicia-5_qqvmco.webp" %>
-          </div>
+          <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/v1591265093/villa-alicia-5_qqvmco.webp", class: "house-carousel__fullscreen-img" %>
           <div class="container">
             <div class="row">
-              <div class="col">
-                <div class="house-carousel__btn-container">
-                  <button class="btn house-wishlist__btn btn-sm btn-light">
-                    <i class="far fa-heart" style="padding-right: 10px;"></i>
-                    Ajouter aux favoris
-                  </button>
-                </div>
+              <div class="house-carousel__btn-container">
+                <button class="btn house-wishlist__btn btn-sm btn-light">
+                  <i class="far fa-heart" style="padding-right: 10px;"></i>
+                  Ajouter aux favoris
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="house-heading__title container">
+      <div class="house-heading__title container mt-2">
         <div class="row">
           <div class="col-24">
             <h2 class="house-title__title"><%= @villa.name %></h1>
@@ -52,10 +48,11 @@
             <div class="house-detail_booking-block">
 
             </div>
-            <div class="house-description">
-              <div class="house-description__container" style="overflow: visible;">
+            <div class="house-description mr-4">
+              <div class="house-description__container position-relative" style="overflow: visible;">
                 <i class="fas fa-quote-left"></i>
                 <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px;"><%= @villa.description %></p>
+                <i class="fas fa-quote-right position-absolute" style="right:-5px;"></i>
               </div>
               <!-- <button class="btn house-description__more-button btn-link">
                 <span>Lire toute la description</span>
@@ -89,10 +86,10 @@
                 </div>
               </div>
             </div>
-            <hr class="house-detail__divider">
+            <hr class="house-detail__divider mr-4">
             <div>
               <h4>Services inclus</h4>
-              <div class="house-services__frame">
+              <div class="house-services__frame mr-4">
                 <div class="row">
                   <div class="col-sm-12 col-24">
                     <div class="tag tag-list__tag">
@@ -111,7 +108,7 @@
                 </div>
               </div>
             </div>
-            <hr class="house-detail__divider">
+            <hr class="house-detail__divider mr-4">
             <div class="house-surroudning">
               <h4 class="house-surrending__title">Les alentours</h4>
               <p class="house-surrounding__text"></p>
@@ -130,9 +127,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="house-surroundings__maps">
+                <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/v1591439753/map-villa_rtnsgg.png", class: "house-surroundings__maps" %>
 
-                </div>
                 <div>
                   <div class="house-surroungings__group">
                     <h6 class="house-surroundings_subtitle">A proximité</h6>
@@ -184,7 +180,7 @@
                 <%= simple_form_for [@villa, @booking] do |f| %>
                   <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control bg-white", id:'booking_start_date_bis' } %>
                   <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control bg-white", id:'booking_end_date_bis' } %>
-                  <%= f.button :submit, "Réserver maintenant !", class: "btn btn-secondary btn-block" %>
+                  <%= f.button :submit, "Réserver maintenant !", class: "btn-book btn-secondary btn-block", data: { target: "#exampleModalCenter", toggle: "modal" } %>
                 <% end %>
                 <div class="inquiry-date-picker__contact">
                   <p>Ou contactez-nous</p>
@@ -200,6 +196,25 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Confirmation de la réservation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Nous sommes ravis que vous ayez pu trouver la villa de vos rêves!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
       </div>
     </div>
   </div>
