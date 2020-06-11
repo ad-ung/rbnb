@@ -113,20 +113,6 @@
               <h4 class="house-surrending__title">Les alentours</h4>
               <p class="house-surrounding__text"></p>
               <div class="house-surrounding__setting">
-                <div class="row">
-                  <div class="col-sm-12 col-24">
-                    <div class="tag tag-list__tag">
-                      <span class="tag__icon icn icn-panoramic-mountain"></span>
-                      <span class="tag__text">Vue montagne</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-24">
-                    <div class="tag tag-list__tag">
-                      <span class="tag__icon icn icn-panoramic-mountain"></span>
-                      <span class="tag__text">Vue mer</span>
-                    </div>
-                  </div>
-                </div>
                 <div id="map"
                      class="house-surroundings__maps"
                      data-markers="<%= @markers.to_json %>"
@@ -134,18 +120,18 @@
                 </div>
                 <div>
                   <div class="house-surroungings__group">
-                    <h6 class="house-surroundings_subtitle">A proximité</h6>
+                    <h5 class="house-surroundings_subtitle">A proximité</h5>
                     <div class="row">
-                      <div class="col-sm12 col-24">
+                      <div class="col-sm-12 col-24 mb-2">
                         Commerces accessibles en voiture
                       </div>
-                      <div class="col-sm12 col-24">
+                      <div class="col-sm-12 col-24">
                         Plages accessibles à pied
                       </div>
-                      <div class="col-sm12 col-24">
+                      <div class="col-sm-12 col-24">
                         Restaurants et bars accessible à pied
                       </div>
-                      <div class="col-sm12 col-24">
+                      <div class="col-sm-12 col-24">
                         Centre ville accessible en voiture
                       </div>
                     </div>
@@ -158,7 +144,6 @@
                 <h4>Ils ont aimé cette villa</h4>
               </div>
               <div class="house-reviews__text">
-                <p>Nous nous engagons à vous trouver la meilleure villa pour des expériences inoubliables.</p>
               </div>
               <div class="base-review house-reviews-container">
                 <ul>
@@ -170,7 +155,14 @@
                       <li class="list-group"><%= review.content %></li>
                     <div class="base-review__footer">
                       <li class="list-group"><%= review.user[:pseudo] %></li>
-                      <li class="list-group"><%= review.rating %> / 5</li>
+                      <div class="icn__rating">
+                        <% @villa.rating.to_i.times do %>
+                         <i class="fas fa-star"></i>
+                        <% end %>
+                        <% @villa.blank_stars.times do %>
+                         <i class="far fa-star"></i>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
                   <% end %>
@@ -214,7 +206,7 @@
                 <div class="inquiry-date-picker__contact">
                   <p>Ou contactez-nous</p>
                   <a href="#" class="inquiry-date-picker__phone">
-                  01.45.44.43.42
+                    01 45 44 43 42
                   </a>
                 </div>
                 <hr class="inquiry-date-picker__divider">
