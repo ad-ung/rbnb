@@ -12,7 +12,6 @@ class Villa < ApplicationRecord
   validates :city, presence: true
   validates :price_per_day, presence: true, numericality: { only_integer: true }
   validates :address, presence: true
-  validates :rating, presence: true, numericality: { only_integer: true }, inclusion: { in: [1, 2, 3, 4, 5]}
 
   def unavailable_dates
     bookings.map { |b| b.starts_on..b.ends_on }

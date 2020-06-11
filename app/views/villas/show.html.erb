@@ -156,11 +156,11 @@
                     <div class="base-review__footer">
                       <li class="list-group"><%= review.user[:pseudo] %></li>
                       <div class="icn__rating">
-                        <% @villa.rating.to_i.times do %>
-                         <i class="fas fa-star"></i>
+                        <% review.rating.to_i.times do %>
+                         <i class="fas fa-star checked"></i>
                         <% end %>
-                        <% @villa.blank_stars.times do %>
-                         <i class="far fa-star"></i>
+                        <% (5 - review.rating).times do %>
+                         <i class="far fa-star unchecked"></i>
                         <% end %>
                       </div>
                     </div>
