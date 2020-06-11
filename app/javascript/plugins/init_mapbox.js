@@ -7,8 +7,11 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-74.5, 40],
+      zoom: 100
     });
+    map.addControl(new mapboxgl.NavigationControl());
     const markers = JSON.parse(mapElement.dataset.markers);
       console.log(markers)
       markers.forEach((marker) => {
