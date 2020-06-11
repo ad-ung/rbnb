@@ -156,11 +156,11 @@
 
 
             <div>
+              <hr class="house-detail__divider mr-4">
               <div class="house-reviews__title">
                 <h4>Ils ont aimé cette villa</h4>
               </div>
               <div class="house-reviews__text">
-                <p>Nous nous engagons à vous trouver la meilleure villa pour des expériences inoubliables.</p>
               </div>
               <div class="base-review house-reviews-container">
                 <ul>
@@ -172,14 +172,14 @@
                       <li class="list-group"><%= review.content %></li>
                     <div class="base-review__footer">
                       <li class="list-group"><%= review.user[:pseudo] %></li>
-                      <li class="list-group">
-                        <% review.rating.times do %>
-                          <span class="fa fa-star checked"></span>
+                      <div class="icn__rating">
+                        <% review.rating.to_i.times do %>
+                         <i class="fas fa-star checked"></i>
                         <% end %>
-                        <% (5- review.rating).times do %>
-                          <span class="fa fa-star unchecked"></span>
+                        <% (5 - review.rating).times do %>
+                         <i class="far fa-star unchecked"></i>
                         <% end %>
-                      </li>
+                      </div>
                     </div>
                   </div>
                   <% end %>
