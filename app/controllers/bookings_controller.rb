@@ -9,7 +9,18 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.all
+
+    @bookings_future = []
+    @bookings_past = []
+    Booking.all.each do |booking|
+      if booking.starts_on > Time.now
+        @bookings_future << booking
+      else
+        @bookings_past << booking
+      end
+    end
+
+
   end
 
   def show

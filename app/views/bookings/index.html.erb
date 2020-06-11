@@ -1,7 +1,7 @@
 <section class="page-section" id="allbookings">
   <div class="container" id="reservations">
     <div class="text-center">
-      <h3 class="section-heading text-uppercase">Réservations</h3>
+      <h3 class="section-heading text-uppercase m-2">Réservations</h3>
     </div>
     <ul class="nav nav-tabs" id="bookingsTabs" role="tablist">
       <li class="nav-item">
@@ -14,53 +14,57 @@
     <div class="tab-content" id="contentTab">
       <div class="tab-pane fade show active" id="upcomingContent" role="tabpanel" aria-labelledby="upcomingTab">
         <ul class="timeline">
-          <li>
-            <div class="timeline-image">
-              <%= image_tag ("booking/bookingimg3.jpg"), class: "rounded-circle img-fluid" %></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h5>Séjour Paris - Mai 2020</h5>
-                <h5 class="subheading">Villa César</h5>
+
+
+          <% @bookings_future.each do |booking| %>
+
+            <li>
+              <div class="timeline-image">
+                <%= link_to booking_path(booking) do %>
+                  <%= image_tag booking.villa.img_url, class: "rounded-circle img-square" %></div>
+                <% end %>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h5><%= "Séjour #{booking.villa.city} - #{l(booking.starts_on, format: '%B %Y', locale: 'fr')}" %></h5>
+                  <h5 class="subheading"><%= booking.villa.name %></h5>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">
+                    <%= "Adresse: #{booking.villa.address}" %>
+                    <br>
+                    <%= "Coût total: #{number_with_delimiter((booking.ends_on - booking.starts_on).to_i * booking.villa.price_per_day, :delimiter => ' ')}€" %>
+                </div>
               </div>
-              <div class="timeline-body">
-                <p class="text-muted"> Adresse: 12, Avenue Georges Mandel <br>
-               Code de confirmation: HIMZJRH45JI <br>
-               Coût total: 2890€</p>
-              </div>
-            </div>
-          </li>
+            </li>
+
+          <% end %>
+
         </ul>
       </div>
       <div class="tab-pane fade show" id="pastContent" role="tabpanel" aria-labelledby="pastTab">
         <ul class="timeline">
-          <li>
-            <div class="timeline-image">
-              <%= image_tag ("booking/bookingimg2.jpg"), class: "rounded-circle img-fluid" %></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h5>Séjour Miami - Janvier 2020</h5>
-                <h5 class="subheading">Villa Manoi</h5>
-              </div>
-              <div class="timeline-body"><p class="text-muted"> Adresse: 11065 Washington Ave, Miami Beach <br>
-              Code de confirmation: PFMjU21JI <br>
-              Coût total: 3170€</p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-image">
-              <%= image_tag ("booking/bookingimg1.jpg"), class: "rounded-circle img-fluid" %></div>
+
+          <% @bookings_past.each do |booking| %>
+
+            <li>
+              <div class="timeline-image">
+                <%= image_tag booking.villa.img_url, class: "rounded-circle img-square" %></div>
               <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h5>Séjour Lisbonne 2019</h5>
-                <h5 class="subheading">Villa Liberty</h5>
+                <div class="timeline-heading">
+                  <h5><%= "Séjour #{booking.villa.city} - #{l(booking.starts_on, format: '%B %Y')}" %></h5>
+                  <h5 class="subheading"><%= booking.villa.name %></h5>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">
+                    <%= "Adresse: #{booking.villa.address}" %>
+                    <br>
+                    <%= "Coût total: #{number_with_delimiter((booking.ends_on - booking.starts_on).to_i * booking.villa.price_per_day, :delimiter => ' ')}€" %>
+                </div>
               </div>
-              <div class="timeline-body"><p class="text-muted"> Adresse: 18 R. Rodrigo da Fonseca <br>
-              Code de confirmation: RBHjU43SV <br>
-              Coût total: 2149€ </p>
-              </div>
-            </div>
-          </li>
+            </li>
+
+          <% end %>
+
         </ul>
       </div>
     </div>
