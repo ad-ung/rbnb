@@ -10,6 +10,9 @@
           <%= link_to villa_path(villa) do %>
           <% image_url = villa.img_url.present? ? villa.img_url : "https://res.cloudinary.com/datbhgbcq/image/upload/v1591214712/villa-alicia_vqrvhj.webp" %>
             <div class="card-img" style="background-image: url('<%= image_url %>');">
+              <div class="icn-favorite icn-favorite__index">
+                <i id="fav-index" class="far fa-heart"></i>
+              </div>
             </div>
           <% end %>
           <div class="card-infos position-relative mb-2">
