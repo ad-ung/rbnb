@@ -15,8 +15,7 @@
       <div class="tab-pane fade show active" id="upcomingContent" role="tabpanel" aria-labelledby="upcomingTab">
         <ul class="timeline">
 
-
-          <% @bookings_future.each do |booking| %>
+          <% @bookings_future.order('starts_on').each do |booking| %>
 
             <li>
               <div class="timeline-image">
@@ -44,7 +43,7 @@
       <div class="tab-pane fade show" id="pastContent" role="tabpanel" aria-labelledby="pastTab">
         <ul class="timeline">
 
-          <% @bookings_past.each do |booking| %>
+          <% @bookings_past.order('starts_on').each do |booking| %>
 
             <li>
               <div class="timeline-image">
