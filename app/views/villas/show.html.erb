@@ -148,7 +148,7 @@
               </div>
               <div class="base-review house-reviews-container">
                 <ul>
-                  <% @villa.reviews.each do |review| %>
+                  <% @villa.reviews.order("created_at DESC").each do |review| %>
                   <div class="base-review-container mb-4">
                      <div class="base-review__title">
                        <li class="list-group"><strong><%= review.title %></strong></li>
