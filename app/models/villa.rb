@@ -17,10 +17,6 @@ class Villa < ApplicationRecord
     bookings.map { |b| b.starts_on..b.ends_on }
   end
 
-  def blank_stars
-    5 - rating.to_i
-  end
-
   def unavailable_dates_bis #for datepicker only
     bookings.pluck(:starts_on, :ends_on).map do |range|
       { from: range[0].strftime("%d/%m/%Y"), to: range[1].strftime("%d/%m/%Y") }
