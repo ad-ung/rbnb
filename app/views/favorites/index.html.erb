@@ -1,6 +1,23 @@
-<ul>
-<%@favorites.each do |favoris| %>
-<%= link_to favoris.villa.name, villa_path(favoris.villa) %>
-<%= favoris.villa.city%>
-<%end %>
-</ul>
+
+<div class="container">
+  <h1>Mes Favoris</h1>
+  <div class="row">
+    <%@favorites.each do |favoris| %>
+      <div class="col-lg-6 col-24">
+        <div class="card">
+          <%= link_to villa_path(favoris.villa) do %>
+          <% image_url = favoris.villa.img_url.present? ? favoris.villa.img_url : "https://res.cloudinary.com/datbhgbcq/image/upload/v1591214712/villa-alicia_vqrvhj.webp" %>
+            <div class="card-img" style="background-image: url('<%= image_url %>');">
+            </div>
+          <% end %>
+          <div class="card-infos">
+            <h2><%= favoris.villa.name %></h2>
+            <p><%= favoris.villa.city %></p>
+            <p>A partir de <%= favoris.villa.price_per_day %>€ /nuit</p>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
