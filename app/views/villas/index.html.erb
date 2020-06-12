@@ -8,20 +8,31 @@
       <div class="col-lg-6 col-24">
         <div class="card">
           <%= link_to villa_path(villa) do %>
-          <% image_url = villa.img_url.present? ? villa.img_url : "https://res.cloudinary.com/datbhgbcq/image/upload/v1591214712/villa-alicia_vqrvhj.webp" %>
-            <div class="card-img" style="background-image: url('<%= image_url %>');">
+            <div class="card-img" style="background-image: url('<%= villa.img_url[0] %>');">
             </div>
           <% end %>
           <div class="card-infos position-relative mb-2">
-            <h3 class="mt-2 mb-3"><%= villa.name %></h3>
+            <h3 class="mt-2 mb-3 montserrat"><%= villa.name %></h3>
             <h5><%= villa.city %></h5>
             <h5 class="position-absolute" style="right:16px; bottom:-2px;">A partir de <%= villa.price_per_day %>€ /nuit</h5>
+            <div class="d-flex justify-content-between">
+              <% villa.reviews.each do |review| %>
+                <div class="icn__rating">
+                  <% review.rating.to_i.times do %>
+                    <i class="fas fa-star checked"></i>
+                  <% end %>
+                  <% (5 - review.rating).times do %>
+                    <i class="far fa-star unchecked"></i>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
             <div class="card-tag">
               <div class="card-icon">
                 <div class="icn-index">
-                  <i class="fas fa-user-friends"><span class="tag__text"> <%= villa.feature.guest_nb %></span></i>
-                  <i class="fas fa-bed"><span class="tag__text"> <%= villa.feature.bedroom_nb %></span></i>
-                  <i class="fas fa-bath"><span class="tag__text"> <%= villa.feature.bathroom_nb %></span></i>
+                  <i class="fas fa-user-friends"><span class="tag__text" style="font-size: 1.5rem;"> <%= villa.feature.guest_nb %></span></i>
+                  <i class="fas fa-bed"><span class="tag__text" style="font-size: 1.5rem;"> <%= villa.feature.bedroom_nb %></span></i>
+                  <i class="fas fa-bath"><span class="tag__text" style="font-size: 1.5rem;"> <%= villa.feature.bathroom_nb %></span></i>
                 </div>
               </div>
             </div>

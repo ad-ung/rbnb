@@ -2,38 +2,14 @@
   <div class="house-slug__container">
     <div class="house-heading__container">
       <div class="house-heading__pictures">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <%= image_tag @booking.villa.img_url[0], class: "house-carousel__fullscreen-img" %>
-            </div>
-            <div class="carousel-item">
-              <%= image_tag @booking.villa.img_url[1], class: "house-carousel__fullscreen-img" %>
-            </div>
-            <div class="carousel-item">
-              <%= image_tag @booking.villa.img_url[2], class: "house-carousel__fullscreen-img" %>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <i class="fas fa-angle-left" style="font-size: 5rem;"></i>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <i class="fas fa-angle-right" style="font-size: 5rem;"></i>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+        <div class="house-carousel">
+          <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/v1591265093/villa-alicia-5_qqvmco.webp", class: "house-carousel__fullscreen-img" %>
           <div class="container">
             <div class="row">
               <div class="house-carousel__btn-container">
                 <button class="btn house-wishlist__btn btn-sm btn-light">
                   <i class="far fa-heart" style="padding-right: 10px;"></i>
-                    Ajouter aux favoris
+                  Ajouter aux favoris
                 </button>
               </div>
             </div>
@@ -59,13 +35,13 @@
         <div class="house-detail col-lg-15 col-24">
           <div>
             <div class="tag house-details__tag icn-show">
-              <i class="fas fa-user-friends"><span class="tag__text" style="font-size: 1.5rem;"> <%= @booking.villa.feature.guest_nb %></span></i>
+              <i class="fas fa-user-friends"><span class="tag__text"> 10</span></i>
             </div>
             <div class="tag house-details__tag icn-show">
-              <i class="fas fa-bed"><span class="tag__text" style="font-size: 1.5rem;"> <%= @booking.villa.feature.bedroom_nb %></span></i>
+              <i class="fas fa-bed"><span class="tag__text"> 5</span></i>
             </div>
             <div class="tag house-details__tag icn-show">
-              <i class="fas fa-bath"><span class="tag__text" style="font-size: 1.5rem;"> <%= @booking.villa.feature.bathroom_nb %></span></i>
+              <i class="fas fa-bath"><span class="tag__text"> 5</span></i>
             </div>
           </div>
           <div class="house-detail_booking-description">
@@ -75,7 +51,7 @@
             <div class="house-description mr-4">
               <div class="house-description__container position-relative" style="overflow: visible;">
                 <i class="fas fa-quote-left"></i>
-                <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px; font-style: italic; font-size: 1rem;"><%= @booking.villa.description %></p>
+                <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px;"><%= @booking.villa.description %></p>
                 <i class="fas fa-quote-right position-absolute" style="right:-5px;"></i>
               </div>
               <!-- <button class="btn house-description__more-button btn-link">
@@ -87,28 +63,26 @@
           </div>
           <div>
             <h4>Equipements</h4>
-            <div class="house-services__frame mr-4">
-              <div class="row">
-                <div class="col-sm-12 col-24">
-                  <div class="tag tag-list__tag">
-                    <i class="fas fa-glass-martini-alt mb-3"></i>
-                    <span class="tag__text">Bar extérieur</span>
-                    </span>
-                  </div>
+            <div class="row">
+              <div class="col-sm-12 col-24">
+                <div class="tag tag-list__tag">
+                  <i class="fas fa-glass-martini-alt"></i>
+                  <span class="tag__text">Bar extérieur</span>
+                  </span>
                 </div>
-                <div class="col-sm-12 col-24">
-                  <div class="tag tag-list__tag">
-                    <i class="fas fa-swimming-pool"></i>
-                    <span class="tag__text">Piscine chauffée</span>
-                    </span>
-                  </div>
+              </div>
+              <div class="col-sm-12 col-24">
+                <div class="tag tag-list__tag">
+                  <i class="fas fa-swimming-pool"></i>
+                  <span class="tag__text">Piscine chauffée</span>
+                  </span>
                 </div>
-                <div class="col-sm-12 col-24">
-                  <div class="tag tag-list__tag">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <span class="tag__text">Plage accessible à pied</span>
-                    </span>
-                  </div>
+              </div>
+              <div class="col-sm-12 col-24">
+                <div class="tag tag-list__tag">
+                  <i class="fas fa-umbrella-beach"></i>
+                  <span class="tag__text">Plage accessible à pied</span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -119,21 +93,17 @@
                 <div class="row">
                   <div class="col-sm-12 col-24">
                     <div class="tag tag-list__tag">
-                      <i class="fas fa-hand-sparkles mb-3"></i>
+                      <i class="fas fa-hand-sparkles"></i>
                       <span class="tag__text">Ménage</span>
                     </div>
                   </div>
                   <div class="col-sm-12 col-24">
-                    <div class="tag tag-list__tag">
-                      <i class="fas fa-cookie-bite"></i>
-                      <span class="tag__text">Chef cuisinier</span>
-                    </div>
+                    <i class="fas fa-cookie-bite"></i>
+                    <span class="tag__text">Chef cuisinier</span>
                   </div>
                   <div class="col-sm-12 col-24">
-                    <div class="tag tag-list__tag">
-                      <i class="fas fa-hands-helping"></i>
-                      <span class="tag__text">Conciergerie</span>
-                    </div>
+                    <i class="fas fa-hands-helping"></i>
+                    <span class="tag__text">Conciergerie</span>
                   </div>
                 </div>
               </div>
@@ -143,6 +113,20 @@
               <h4 class="house-surrending__title">Les alentours</h4>
               <p class="house-surrounding__text"></p>
               <div class="house-surrounding__setting">
+                <div class="row">
+                  <div class="col-sm-12 col-24">
+                    <div class="tag tag-list__tag">
+                      <span class="tag__icon icn icn-panoramic-mountain"></span>
+                      <span class="tag__text">Vue montagne</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-24">
+                    <div class="tag tag-list__tag">
+                      <span class="tag__icon icn icn-panoramic-mountain"></span>
+                      <span class="tag__text">Vue mer</span>
+                    </div>
+                  </div>
+                </div>
                 <div id="map"
                      class="house-surroundings__maps"
                      data-markers="<%= @markers.to_json %>"
@@ -150,18 +134,18 @@
                 </div>
                 <div>
                   <div class="house-surroungings__group">
-                    <h5 class="house-surroundings_subtitle">A proximité</h5>
+                    <h6 class="house-surroundings_subtitle">A proximité</h6>
                     <div class="row">
-                      <div class="col-sm-12 col-24 mb-2">
+                      <div class="col-sm12 col-24">
                         Commerces accessibles en voiture
                       </div>
-                      <div class="col-sm-12 col-24">
+                      <div class="col-sm12 col-24">
                         Plages accessibles à pied
                       </div>
-                      <div class="col-sm-12 col-24">
+                      <div class="col-sm12 col-24">
                         Restaurants et bars accessible à pied
                       </div>
-                      <div class="col-sm-12 col-24">
+                      <div class="col-sm12 col-24">
                         Centre ville accessible en voiture
                       </div>
                     </div>
@@ -169,6 +153,8 @@
                 </div>
               </div>
             </div>
+
+
             <div>
               <hr class="house-detail__divider mr-4">
               <div class="house-reviews__title">
@@ -181,9 +167,9 @@
                   <% @booking.villa.reviews.order("created_at DESC").each do |review| %>
                   <div class="base-review-container mb-4">
                      <div class="base-review__title">
-                       <li class="list-group montserrat" style="font-size: 1.25rem;"><%= review.title %></li>
+                       <li class="list-group"><strong><%= review.title %></strong></li>
                      </div>
-                      <li class="list-group italic">" <%= review.content %> "</li>
+                      <li class="list-group"><%= review.content %></li>
                     <div class="base-review__footer">
                       <li class="list-group"><%= review.user[:pseudo] %></li>
                       <div class="icn__rating">
@@ -198,24 +184,13 @@
                   </div>
                   <% end %>
                 </ul>
-                  <div class="carousel-item">
-                    <%= image_tag "https://res.cloudinary.com/datbhgbcq/image/upload/v1591265093/villa-alicia-5_qqvmco.webp", class: "house-carousel__fullscreen-img" %>
-                  </div>
               </div>
             </div>
+
+
           </div>
         </div>
         <div class="col-lg-8">
-          <!-- <div class="sticky-bottom house-inquiry__sticky-bottom">
-            <div class="mobile-inquiry mobile-inquiry--row">
-              <div class="mobile-inquiry__house-price">
-                <p class="mobile-inquiry__price">A partir de <%= @villa.price_per_day %> € /nuit</p>
-              </div>
-              <button class="btn mobile-inquiry__booking-button btn-secondary btn-block">
-                Demande de réservation
-              </button>
-            </div>
-          </div> -->
           <div class="sticky-right house-inquiry__sticky-right">
             <div id="inquiry" class="inquiry-block">
               <div>
@@ -225,7 +200,7 @@
                       <%= @booking.villa.name %>
                     </h5>
                     <p class="inquiry-date-picker__price-from">
-                      A partir de <%= @villa.price_per_day %> € /nuit
+                      A partir de <%= @booking.villa.price_per_day %> € /nuit
                     </p>
                     <hr class="inquiry-date-picker__divider">
                     <h6 class="mb-4">
@@ -264,17 +239,23 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Confirmation de la réservation</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Laisser un commentaire</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Nous sommes ravis que vous ayez pu trouver la villa de vos rêves!
+          <%= simple_form_for [@booking.villa, @review] do |f| %>
+            <%= f.input :rating, label: "Donnez une note entre 1 à 5" %>
+            <%= f.input :title, label:"Donnez un titre à votre commentaire" %>
+            <%= f.input :content, as: :text, label: "Ecrivez votre commentaire", input_html: { rows: 5 } %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            <%= f.button :submit, "Enregistrer", class: "btn btn-secondary" %>
+          <% end %>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
       </div>
     </div>
   </div>
 </div>
+

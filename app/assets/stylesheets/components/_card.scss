@@ -60,7 +60,6 @@
 .icn-index {
   line-height: 1;
   font-size: 1.5rem;
-  font-family: "icomoon";
   display: inline-block;
   vertical-align: bottom;
   box-sizing: content-box;
@@ -70,7 +69,6 @@
 .icn-show {
   line-height: 1;
   font-size: 1.5rem;
-  font-family: "icomoon";
   display: inline-block;
   vertical-align: bottom;
   box-sizing: content-box;
@@ -85,7 +83,7 @@
 .tag-list__tag {
   display: flex;
   margin: 0 0 .5rem 0;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 *, *::before, *::after {
@@ -177,10 +175,17 @@
   border-radius: .125rem;
 }
 
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.italic {
+  font-style: italic;
+}
+
 .btn-book {
   display: inline-block;
   font-weight: 700;
-  color: #202020;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -194,6 +199,25 @@
   line-height: 1.2;
   border-radius: .125rem;
   transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+
+.checked {
+  color: #d92027;
+}
+
+.unchecked {
+
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #004445;
+  border-color: #004445;
 }
 
 .add-to-favorite {
@@ -273,23 +297,27 @@
   margin: 0 0 1.5rem 0;
 }
 
-h1, h2, h3, h4, .h1, .h2, .h3, .h4,  {
+h1, h2, h3, .h1, .h2, .h3,  {
   margin-bottom: 1.5rem;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 700;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   line-height: 1.2;
   color: #202020;
-  font-weight: bold;
   margin-top: 2rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
-h5, h6, .h5, .h6 {
+h4, h5, h6, .h4, .h5, .h6 {
   margin-bottom: 1rem;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
   color: #202020;
-  margin-top: 1rem;
+}
+
+h6, .h6 {
+  font-size: 0.75rem;
 }
 
 h4, .h4 {
@@ -328,6 +356,7 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .mobile-inquiry__house-price {
@@ -336,17 +365,9 @@ p {
 }
 
 .inquiry-block {
-  border: 1px solid #cacaca;
-  border-radius: .25rem;
   overflow: visible;
   background: #fff;
-  padding: 1.5rem 1rem;
-}
-
-.inquiry-block {
-  overflow: visible;
-  background: #fff;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 2rem;
   border: 1px solid #cacaca;
   border-radius: .25rem;
 }
@@ -366,20 +387,9 @@ p {
   font-weight: 500;
 }
 
-.btn-block {
-  display: block;
-  width: 100%;
-}
-
-.btn-secondary {
-  color: #fff;
-  background-color: #195252;
-  border-color: #195252;
-}
-
 .inquiry-date-picker__contact {
   text-align: center;
-  margin: 1.5rem 0 2rem 0;
+  margin: 2rem 0 2rem 0;
 }
 
 .inquiry-date-picker__divider {
@@ -394,26 +404,18 @@ p {
   max-width: 100%;
 }
 
-.inquiry-block {
-  overflow: visible;
-  background: #fff;
-  padding: 1.5rem 1rem;
+.col-lg-8 {
+  flex: 0 0 35%;
+  max-width: 35%;
 }
 
-.col-lg-8 {
-  flex: 0 0 33.33333%;
-  max-width: 33.33333%;
+.col-lg-15 {
+  flex: 0 0 62.5%;
+  max-width: 62.5%;
 }
 
 .house-inquiry__sticky-right {
   display: block;
-}
-
-@media (min-width: 992px) {
-.col-lg-15 {
-  flex: 0 0 62.5%;
-  max-width: 62.5%;
-  }
 }
 
 hr {
@@ -430,7 +432,6 @@ hr {
 }
 
 .col-24 {
-  // flex: 0 0 100%;
   max-width: 100%;
 }
 
@@ -480,6 +481,12 @@ ul {
 @media (min-width: 768px) {
 .house-carousel__fullscreen-img {
     height: 480px;
+  }
+}
+
+@media (min-width: 1170px) {
+.container {
+    max-width: 1248px;
   }
 }
 
