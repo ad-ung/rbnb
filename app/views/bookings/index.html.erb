@@ -20,7 +20,7 @@
             <li>
               <div class="timeline-image">
                 <%= link_to booking_path(booking) do %>
-                  <%= image_tag booking.villa.img_url, class: "rounded-circle img-square" %></div>
+                  <%= image_tag booking.villa.img_url[0], class: "rounded-circle img-square" %></div>
                 <% end %>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -47,7 +47,7 @@
 
             <li>
               <div class="timeline-image">
-                <%= image_tag booking.villa.img_url, class: "rounded-circle img-square" %></div>
+                <%= image_tag booking.villa.img_url[0], class: "rounded-circle img-square" %></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
                   <h5><%= "Séjour #{booking.villa.city} - #{l(booking.starts_on, format: '%B %Y')}" %></h5>
