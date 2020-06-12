@@ -85,7 +85,7 @@
 .tag-list__tag {
   display: flex;
   margin: 0 0 .5rem 0;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 *, *::before, *::after {
@@ -273,23 +273,25 @@
   margin: 0 0 1.5rem 0;
 }
 
-h1, h2, h3, h4, .h1, .h2, .h3, .h4,  {
+h1, h2, h3, .h1, .h2, .h3,  {
   margin-bottom: 1.5rem;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
   color: #202020;
-  font-weight: bold;
   margin-top: 2rem;
+  font-family: 'Lobster Two', cursive;
 }
 
-h5, h6, .h5, .h6 {
+h4, h5, h6, .h4, .h5, .h6 {
   margin-bottom: 1rem;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
   color: #202020;
-  margin-top: 1rem;
+}
+
+h6, .h6 {
+  font-size: 0.75rem;
 }
 
 h4, .h4 {
@@ -328,6 +330,7 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .mobile-inquiry__house-price {
@@ -474,12 +477,6 @@ ul {
 @media (min-width: 992px) {
 .house-carousel__fullscreen-img {
     height: 70vh;
-  }
-}
-
-@media (min-width: 768px) {
-.house-carousel__fullscreen-img {
-    height: 480px;
   }
 }
 

@@ -10,13 +10,13 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1591900239/Villa_1/SHOW/pic1-show_q2emia.webp" alt="First slide" style="height: 70vh; width: 100vh">
+              <%= image_tag @villa.img_url[0], class: "house-carousel__fullscreen-img" %>
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1591900286/Villa_1/SHOW/pic2-bis_d0c3ps.webp" alt="Second slide" style="height: 70vh; ">
+              <%= image_tag @villa.img_url[1], class: "house-carousel__fullscreen-img" %>
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://res.cloudinary.com/datbhgbcq/image/upload/v1591900286/Villa_1/SHOW/pic4-bis_q2nguc.webp" alt="Third slide" style="height: 70vh; ">
+              <%= image_tag @villa.img_url[2], class: "house-carousel__fullscreen-img" %>
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -74,9 +74,9 @@
             </div>
             <div class="house-description mr-4">
               <div class="house-description__container position-relative" style="overflow: visible;">
-                <i class="fas fa-quote-left"></i>
+                <i class="fas fa-quote-left" style="font-size: 2rem; color: #e4c478"></i>
                 <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px;"><%= @villa.description %></p>
-                <i class="fas fa-quote-right position-absolute" style="right:-5px;"></i>
+                <i class="fas fa-quote-right position-absolute" style="right:-5px; font-size: 2rem; color: #e4c478"></i>
               </div>
               <!-- <button class="btn house-description__more-button btn-link">
                 <span>Lire toute la description</span>
@@ -87,26 +87,28 @@
           </div>
           <div>
             <h4>Equipements</h4>
-            <div class="row">
-              <div class="col-sm-12 col-24">
-                <div class="tag tag-list__tag">
-                  <i class="fas fa-glass-martini-alt"></i>
-                  <span class="tag__text">Bar extérieur</span>
-                  </span>
+            <div class="house-services__frame mr-4">
+              <div class="row">
+                <div class="col-sm-12 col-24">
+                  <div class="tag tag-list__tag">
+                    <i class="fas fa-glass-martini-alt mb-3"></i>
+                    <span class="tag__text">Bar extérieur</span>
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div class="col-sm-12 col-24">
-                <div class="tag tag-list__tag">
-                  <i class="fas fa-swimming-pool"></i>
-                  <span class="tag__text">Piscine chauffée</span>
-                  </span>
+                <div class="col-sm-12 col-24">
+                  <div class="tag tag-list__tag">
+                    <i class="fas fa-swimming-pool"></i>
+                    <span class="tag__text">Piscine chauffée</span>
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div class="col-sm-12 col-24">
-                <div class="tag tag-list__tag">
-                  <i class="fas fa-umbrella-beach"></i>
-                  <span class="tag__text">Plage accessible à pied</span>
-                  </span>
+                <div class="col-sm-12 col-24">
+                  <div class="tag tag-list__tag">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span class="tag__text">Plage accessible à pied</span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -117,17 +119,21 @@
                 <div class="row">
                   <div class="col-sm-12 col-24">
                     <div class="tag tag-list__tag">
-                      <i class="fas fa-hand-sparkles"></i>
+                      <i class="fas fa-hand-sparkles mb-3"></i>
                       <span class="tag__text">Ménage</span>
                     </div>
                   </div>
                   <div class="col-sm-12 col-24">
-                    <i class="fas fa-cookie-bite"></i>
-                    <span class="tag__text">Chef cuisinier</span>
+                    <div class="tag tag-list__tag">
+                      <i class="fas fa-cookie-bite"></i>
+                      <span class="tag__text">Chef cuisinier</span>
+                    </div>
                   </div>
                   <div class="col-sm-12 col-24">
-                    <i class="fas fa-hands-helping"></i>
-                    <span class="tag__text">Conciergerie</span>
+                    <div class="tag tag-list__tag">
+                      <i class="fas fa-hands-helping"></i>
+                      <span class="tag__text">Conciergerie</span>
+                    </div>
                   </div>
                 </div>
               </div>
