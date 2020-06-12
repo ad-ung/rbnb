@@ -8,8 +8,7 @@
       <div class="col-lg-6 col-24">
         <div class="card">
           <%= link_to villa_path(villa) do %>
-          <% image_url = villa.img_url.present? ? villa.img_url : "https://res.cloudinary.com/datbhgbcq/image/upload/v1591214712/villa-alicia_vqrvhj.webp" %>
-            <div class="card-img" style="background-image: url('<%= image_url %>');">
+            <div class="card-img" style="background-image: url('<%= villa.img_url[0] %>');">
             </div>
           <% end %>
           <div class="card-infos position-relative mb-2">
