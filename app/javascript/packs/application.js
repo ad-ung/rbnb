@@ -30,6 +30,7 @@ import { arrowOpacity } from '../components/arrow';
 import { initUpdateNavbarOnScroll } from '../components/navbar-hp';
 import { enableButton } from '../components/button-hp';
 import { initMapbox } from '../plugins/init_mapbox';
+import { showLocation } from '../components/location';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 document.addEventListener('turbolinks:load', () => {
@@ -42,5 +43,6 @@ initUpdateNavbarOnScroll();
 enableButton();
 loadDynamicBannerText();
 initMapbox();
+showLocation();
 });
 
