@@ -35,13 +35,13 @@
         <div class="house-detail col-lg-15 col-24">
           <div>
             <div class="tag house-details__tag icn-show">
-              <i class="fas fa-user-friends"><span class="tag__text"> 10</span></i>
+              <i class="fas fa-user-friends"><span class="tag__text" style="font-size: 1.5rem;"> <%= @villa.feature.guest_nb %></span></i>
             </div>
             <div class="tag house-details__tag icn-show">
-              <i class="fas fa-bed"><span class="tag__text"> 5</span></i>
+              <i class="fas fa-bed"><span class="tag__text" style="font-size: 1.5rem;"> <%= @villa.feature.bedroom_nb %></span></i>
             </div>
             <div class="tag house-details__tag icn-show">
-              <i class="fas fa-bath"><span class="tag__text"> 5</span></i>
+              <i class="fas fa-bath"><span class="tag__text" style="font-size: 1.5rem;"> <%= @villa.feature.bathroom_nb %></span></i>
             </div>
           </div>
           <div class="house-detail_booking-description">
@@ -51,7 +51,7 @@
             <div class="house-description mr-4">
               <div class="house-description__container position-relative" style="overflow: visible;">
                 <i class="fas fa-quote-left"></i>
-                <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px;"><%= @villa.description %></p>
+                <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px; font-style: italic; font-size: 1rem;"><%= @villa.description %></p>
                 <i class="fas fa-quote-right position-absolute" style="right:-5px;"></i>
               </div>
               <!-- <button class="btn house-description__more-button btn-link">
@@ -151,9 +151,9 @@
                   <% @villa.reviews.each do |review| %>
                   <div class="base-review-container mb-4">
                      <div class="base-review__title">
-                       <li class="list-group"><strong><%= review.title %></strong></li>
+                       <li class="list-group montserrat" style="font-size: 1.25rem;"><%= review.title %></li>
                      </div>
-                      <li class="list-group"><%= review.content %></li>
+                      <li class="list-group italic">" <%= review.content %> "</li>
                     <div class="base-review__footer">
                       <li class="list-group"><%= review.user[:pseudo] %></li>
                       <div class="icn__rating">
@@ -200,18 +200,17 @@
                 <%= simple_form_for [@villa, @booking] do |f| %>
                   <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control bg-white", id:'booking_start_date_bis' } %>
                   <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control bg-white", id:'booking_end_date_bis' } %>
-                  <p id="night_nb"><strong>Total :</strong></p>
-                  <p id="total_price" data-ppd = "<%=@villa.price_per_day%>"class="position-absolute" style="right:10px; top: 91px;"><strong>Prix</strong></p>
-                  <%= f.button :submit, "Réserver maintenant !", class: "btn-book btn-secondary btn-block", data: { target: "#exampleModalCenter", toggle: "modal" } %>
+                  <div class="mt-4">
+                    <p id="night_nb" style="padding-left: 0.5rem;"><strong>Total :</strong></p>
+                    <p id="total_price" data-ppd = "<%=@villa.price_per_day%> "class="position-absolute" style="right:10px; top: 100px;"><strong>Prix</strong></p>
+                  </div>
+                  <%= f.button :submit, "Réservez maintenant !", class: "btn-book btn-secondary btn-block mt-4", data: { target: "#exampleModalCenter", toggle: "modal" } %>
                 <% end %>
                 <div class="inquiry-date-picker__contact">
-                  <p>Ou contactez-nous</p>
-                  <a href="#" class="inquiry-date-picker__phone">
-                    01 45 44 43 42
-                  </a>
+                  <p>Ou contactez-nous:<span style="color: #e4c478; font-size: 1rem; font-weight: 700;"> + 33 1 45 44 43 42</span></p>
                 </div>
                 <hr class="inquiry-date-picker__divider">
-                <div class="inquiry-reassurance text-align-justify">
+                <div class="text-align-justify" style="color: #888888; font-size: 0.85rem">
                    Nous sommes toujours à la recherche de la villa parfaite, pour vous proposer la meilleure expérience possible. Le service inclus est entièrement sur-mesure pour que vous repartiez avec des souvenirs mémorables.
                 </div>
               </div>
