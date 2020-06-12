@@ -1,6 +1,6 @@
 
 <div class="container">
-  <h1>Mes Favoris</h1>
+  <h1 class="fav_title">Mes Favoris</h1>
   <div class="row">
     <%@favorites.each do |favoris| %>
       <div class="col-lg-6 col-24">
@@ -15,7 +15,15 @@
             <p><%= favoris.villa.city %></p>
             <p>A partir de <%= favoris.villa.price_per_day %>€ /nuit</p>
           </div>
-
+          <div class="card-tag">
+            <div class="card-icon">
+              <div class="icn">
+                <i class="fas fa-user-friends"><span class="tag__text"> <%= favoris.villa.feature.guest_nb %></span></i>
+                <i class="fas fa-bed"><span class="tag__text"> <%= favoris.villa.feature.bedroom_nb %></span></i>
+                <i class="fas fa-bath"><span class="tag__text"> <%= villa.feature.bathroom_nb %></span></i>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
