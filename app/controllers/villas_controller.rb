@@ -5,7 +5,7 @@ class VillasController < ApplicationController
     @villas = []
     Feature.where("guest_nb >= ?", params["search"][:guest_nb]).each do |f|
       if available?(f.villa, params["search"][:starts_on].to_date, params["search"][:ends_on].to_date)
-        if f.villa.city == params["search"][:city]
+        if f.villa.city == params["search"][:city].split(',')[0]
           @villas << f.villa
         end
       end
