@@ -103,7 +103,7 @@ puts "Villas: #{Villa.all.size}"
 
 puts "Creation user"
 
-User.create!(email: "johndoe@gmail.com", pseudo: "John_Doe", password: "topsecret")
+User.create!(email: "johndoe@gmail.com", pseudo: "John", password: "topsecret")
 User.create!(email: "cath02@gmail.com", pseudo: "Cath_02", password: "topsecret")
 User.create!(email: "kanita@gmail.com", pseudo: "Kanita", password: "topsecret")
 User.create!(email: "maxou99@gmail.com", pseudo: "Maxou99", password: "topsecret")
@@ -157,7 +157,7 @@ puts "create booking"
 
 villas.each do |villa|
   b = Booking.new(starts_on: "26/07/2020", ends_on: "04/08/2020")
-  b.user = User.find_by(pseudo: "John_Doe")
+  b.user = User.find_by(pseudo: "Alexandre")
   b.villa = Villa.find_by(name: villa)
   b.save!
 end
@@ -171,7 +171,7 @@ villas-bis = Villa.all.sample(3)
 villas-bis.each do |villa|
   f = Favorite.new
   f.villa_id = villa.id
-  f.user = User.find_by(pseudo: "John_Doe")
+  f.user = User.find_by(pseudo: "Alexandre")
   f.save!
 end
 
@@ -207,11 +207,11 @@ end
 puts "Feature: #{Feature.all.size}"
 
 puts "create persona demo"
-user = User.create!(email: "jane_doe@gmail.com", pseudo: "Jane_Doe", password: "topsecret")
+user = User.create!(email: "john_doe@gmail.com", pseudo: "Alex", password: "topsecret")
 
 def book(villa_id, date_start, date_end)
   b = Booking.new(starts_on: date_start, ends_on: date_end)
-  b.user = User.find_by(pseudo: "Jane_Doe")
+  b.user = User.find_by(pseudo: "Alex")
   b.villa = Villa.find(villa_id)
   b.save!
 end
