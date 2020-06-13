@@ -34,9 +34,11 @@
               <div class="row">
                 <div class="col">
                   <div class="house-carousel__btn-container">
+                    <div id = "delete_fav"> </div>
                     <button class="btn house-wishlist__btn btn-sm btn-light">
-                      <i class="far fa-heart" style="padding-right: 10px;"></i>
-                      <%= link_to 'Favoris', villa_favorite_path(@favorite), method: :delete %>
+
+                      <i class="fas fa-heart" style="padding-right: 10px; color: pink"></i>
+                      <%= link_to 'Favoris', villa_favorite_path(@favorite), class: "favlink", method: :delete, remote:true %>
                     </button>
                   </div>
                 </div>
@@ -51,7 +53,7 @@
                   <div class="house-carousel__btn-container">
                     <button class="btn house-wishlist__btn btn-sm btn-light">
                       <i class="far fa-heart" style="padding-right: 10px;"></i>
-                      <%= link_to 'Ajouter aux favoris', villa_favorites_path(@villa), method: :post %>
+                      <%= link_to 'Ajouter aux favoris', villa_favorites_path(@villa), class: "favlink", method: :post, remote: true %>
                     </button>
                   </div>
                 </div>
