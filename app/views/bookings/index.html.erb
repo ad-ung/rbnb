@@ -1,2 +1,73 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<section class="page-section" id="allbookings">
+  <div class="container" id="reservations">
+    <div class="text-center">
+      <h3 class="section-heading text-uppercase m-2">Réservations</h3>
+    </div>
+    <ul class="nav nav-tabs" id="bookingsTabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="upcomingTab" data-toggle="tab" href="#upcomingContent" role="tab" aria-controls="upcomingContent" aria-selected="true">À venir</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pastTab" data-toggle="tab" href="#pastContent" role="tab" aria-controls="pastContent" aria-selected="true">Précédents</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="contentTab">
+      <div class="tab-pane fade show active" id="upcomingContent" role="tabpanel" aria-labelledby="upcomingTab">
+        <ul class="timeline">
+
+          <% @bookings_future.order('starts_on').each do |booking| %>
+
+            <li>
+              <div class="timeline-image">
+                <%= link_to booking_path(booking) do %>
+                  <%= image_tag booking.villa.img_url[0], class: "rounded-circle img-square" %></div>
+                <% end %>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h5><%= "Séjour #{booking.villa.city} - #{l(booking.starts_on, format: '%B %Y', locale: 'fr')}" %></h5>
+                  <h5 class="subheading"><%= booking.villa.name %></h5>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">
+                    <%= "Adresse: #{booking.villa.address}" %>
+                    <br>
+                    <%= "Coût total: #{number_with_delimiter((booking.ends_on - booking.starts_on).to_i * booking.villa.price_per_day, :delimiter => ' ')}€" %>
+                </div>
+              </div>
+            </li>
+
+          <% end %>
+
+        </ul>
+      </div>
+      <div class="tab-pane fade show" id="pastContent" role="tabpanel" aria-labelledby="pastTab">
+        <ul class="timeline">
+
+          <% @bookings_past.order('starts_on DESC').each do |booking| %>
+
+            <li>
+              <div class="timeline-image">
+                <%= link_to booking_path(booking) do %>
+                  <%= image_tag booking.villa.img_url[0], class: "rounded-circle img-square" %></div>
+                <% end %>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h5><%= "Séjour #{booking.villa.city} - #{l(booking.starts_on, format: '%B %Y')}" %></h5>
+                  <h5 class="subheading"><%= booking.villa.name %></h5>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">
+                    <%= "Adresse: #{booking.villa.address}" %>
+                    <br>
+                    <%= "Coût total: #{number_with_delimiter((booking.ends_on - booking.starts_on).to_i * booking.villa.price_per_day, :delimiter => ' ')}€" %>
+                </div>
+              </div>
+            </li>
+
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

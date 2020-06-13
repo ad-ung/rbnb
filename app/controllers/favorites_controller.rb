@@ -13,15 +13,11 @@ class FavoritesController < ApplicationController
     redirect_to villa_path(@villa)
   end
 
-
-
   def destroy
     @villa = Villa.find(params[:id])
     @favorite = Favorite.where(user_id: current_user.id, villa_id: @villa.id)
     Favorite.destroy(@favorite.first.id)
     redirect_to villa_path(@villa)
   end
-
-
 
 end

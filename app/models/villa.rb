@@ -1,4 +1,7 @@
 class Villa < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   has_many :bookings
   has_many :reviews
   has_many :favorites
@@ -11,7 +14,7 @@ class Villa < ApplicationRecord
   validates :address, presence: true
 
   def unavailable_dates
-    bookings.map { |b| b.starts_on..b.ends_on } [0]
+    bookings.map { |b| b.starts_on..b.ends_on }
   end
 
   def unavailable_dates_bis #for datepicker only
@@ -19,5 +22,4 @@ class Villa < ApplicationRecord
       { from: range[0].strftime("%d/%m/%Y"), to: range[1].strftime("%d/%m/%Y") }
     end
   end
-
 end

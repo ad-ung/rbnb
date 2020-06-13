@@ -11,26 +11,33 @@
 puts "destroy booking"
 
 Booking.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('bookings')
 
 puts "destroy Review"
 
 Review.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('reviews')
 
 puts "destroy favorite"
 
 Favorite.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
+
 
 puts "destroy Feature"
 
 Feature.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('features')
 
 puts "destroy User"
 
 User.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('user')
 
 puts "destroy Villa"
 
 Villa.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('villas')
 
 
 require "open-uri"
@@ -70,15 +77,27 @@ descriptions = [
   "Magnifique villa de luxe au bord de l’eau. Une grande cuisine toute équipée possède un ilot central imposant avec plan de travail en granit. Une grande salle à manger est prévue pour accueillir de nombreux convives. A l’entrée, un grand séjour et un bureau fermé. Double vitrage partout, air conditionné, portes en bois massif… Dehors, une sublime piscine moderne avec terrasse ombragée, salon extérieur et ponton au bord de l’eau. Un garage pour une voiture, un dressing et une buanderie complètent ce bien."
 ]
 
+# cities = ["Porto-Vecchio",
+#   "Bonifacio",
+#   "Megève",
+#   "Val d'Isère",
+#   "Saint-tropez",
+#   "Cap Ferret",
+#   "Acapulco",
+#   "Saint-Barthélémy"
+# ]
+
+ratings = [4, 5, 4, 5, 5, 3, 4, 5]
+
 ppd = [671, 591, 472, 820, 1109, 581, 492, 720]
 
-puts "Creation villa Miami"
+puts "Creation villas"
 
 villas.each_with_index do |villa, i|
-  Villa.create!(name: villa, city: "Miami", description: descriptions[i], address: addresses[i], price_per_day: ppd[i])
+  Villa.create!(name: villa, city: "Porto-Vecchio", description: descriptions[i], address: addresses[i], price_per_day: ppd[i])
 end
 
-puts "Villa à Miami: #{Villa.all.size}"
+puts "Villas: #{Villa.all.size}"
 
 # user
 
@@ -108,11 +127,21 @@ reviews = [
  "Je recommande"
 ]
 
+reviews_title = [
+"Le paradis",
+"Un séjour de rêve",
+"Les meilleures vacances de toute ma vie",
+"Le rêve absolu",
+"Inimaginable",
+"Magique",
+"Magnifique"
+]
+
 puts "create review"
 
 villas.each do |villa|
   3.times do |i|
-    r = Review.new(content: reviews.sample)
+    r = Review.new(content: reviews.sample, title: reviews_title.sample)
     r.villa = Villa.find_by(name: villa)
     r.user_id = User.all.sample.id
     r.rating = rand(3..5)
@@ -150,33 +179,44 @@ puts "Favorite: #{Favorite.all.size}"
 
 img_url = [
   # "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/casa_ivana_byzwkf.webp",
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591259304/villa-alicia-4_ruj24a.webp",
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_omnia_xv1d1s.webp",
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/the_beach_house_njz173.webp",
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_inesta_tkrc31.webp",
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/lake_house_villa_jkm14a.webp",
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_carlota_p6bswt.webp",
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/tropical_oasis_uuyydk.webp",
-  "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_karizma_aq0xkw.webp"
+  [ "https://res.cloudinary.com/datbhgbcq/image/upload/v1591259304/villa-alicia-4_ruj24a.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591958882/Villa_1/SHOW/pic-show-2_jcnfja.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591958882/Villa_1/SHOW/pic-show-3_cxjkkm.webp" ],
+  [ "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_omnia_xv1d1s.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic2_y4nluq.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic3_m6icn4.webp" ],
+  [ "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/the_beach_house_njz173.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic2_y4nluq.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic3_m6icn4.webp" ],
+  [ "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_inesta_tkrc31.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic2_y4nluq.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic3_m6icn4.webp" ],
+  [ "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/lake_house_villa_jkm14a.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic2_y4nluq.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic3_m6icn4.webp" ],
+  [ "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_carlota_p6bswt.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic2_y4nluq.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic3_m6icn4.webp" ],
+  [ "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/tropical_oasis_uuyydk.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic2_y4nluq.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic3_m6icn4.webp" ],
+  [ "https://res.cloudinary.com/datbhgbcq/image/upload/v1591282066/index/villa_karizma_aq0xkw.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic2_y4nluq.webp", "https://res.cloudinary.com/datbhgbcq/image/upload/v1591899796/Villa_1/pic3_m6icn4.webp" ]
 ]
 
-puts "create image url"
+# puts "create image url"
 
 Villa.all.each_with_index do |villa, i|
-  puts villa.img_url
   villa.img_url= img_url[i]
-  puts villa.img_url
   villa.save!
 end
 
-puts "create villa features"
-
-# guest
-# bedroom
-# bathroom
+puts "create feature"
 
 Villa.all.each_with_index do |villa, i|
   feature = Feature.new(guest_nb: [8,12].sample, bedroom_nb: rand(3..6), bathroom_nb: rand(3..6))
-  feature.villa_id = i + 1
+  feature.villa_id = (i + 1)
   feature.save!
 end
+
+puts "Feature: #{Feature.all.size}"
+
+puts "create persona demo"
+user = User.create!(email: "jane_doe@gmail.com", pseudo: "Jane_Doe", password: "topsecret")
+
+def book(villa_id, date_start, date_end)
+  b = Booking.new(starts_on: date_start, ends_on: date_end)
+  b.user = User.find_by(pseudo: "Jane_Doe")
+  b.villa = Villa.find(villa_id)
+  b.save!
+end
+
+book(5, "04/06/2019", "09/06/2019") #past booking
+book(6, "16/11/2019", "20/11/2019") #past booking
+book(7, "03/02/2020", "06/02/2020") #past booking
+book(8, "03/10/2020", "06/10/2020") #future booking

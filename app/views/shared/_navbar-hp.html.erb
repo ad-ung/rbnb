@@ -1,6 +1,6 @@
 <% # à changer par la Navbar de Bernadette %>
 
-<nav class="mb-5 pr-5 navbar navbar-expand-lg navbar-dark secondary-color lighten-1 fixed-top" id="nav-homepage">
+<nav class="pr-5 navbar navbar-expand-lg navbar-dark secondary-color lighten-1 fixed-top" id="nav-homepage">
  <%= link_to 'Buckridge Villas', root_path, class: "navbar-brand"%>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
@@ -18,10 +18,10 @@
           <%= link_to "Notre Sélection", "#", class: "nav-link text-white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Réservations","#", class: "nav-link text-white" %>
+          <%= link_to "Réservations", bookings_path, class: "nav-link text-white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Favoris","#", class: "nav-link text-white" %>
+          <%= link_to "Favoris", favorites_path, class: "nav-link text-white" %>
         </li>
         <li class="nav-item">
           <%= link_to "Messages","#", class: "nav-link text-white" %>
