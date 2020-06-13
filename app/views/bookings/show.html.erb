@@ -74,9 +74,9 @@
             </div>
             <div class="house-description mr-4">
               <div class="house-description__container position-relative" style="overflow: visible;">
-                <i class="fas fa-quote-left"></i>
+                <i class="fas fa-quote-left" style="font-size: 2rem; color: #e4c478"></i>
                 <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px; font-style: italic; font-size: 1rem;"><%= @booking.villa.description %></p>
-                <i class="fas fa-quote-right position-absolute" style="right:-5px;"></i>
+                <i class="fas fa-quote-right position-absolute" style="right:-5px;font-size: 2rem; color: #e4c478"></i>
               </div>
               <!-- <button class="btn house-description__more-button btn-link">
                 <span>Lire toute la description</span>
@@ -206,16 +206,6 @@
           </div>
         </div>
         <div class="col-lg-8">
-          <!-- <div class="sticky-bottom house-inquiry__sticky-bottom">
-            <div class="mobile-inquiry mobile-inquiry--row">
-              <div class="mobile-inquiry__house-price">
-                <p class="mobile-inquiry__price">A partir de <%= @villa.price_per_day %> € /nuit</p>
-              </div>
-              <button class="btn mobile-inquiry__booking-button btn-secondary btn-block">
-                Demande de réservation
-              </button>
-            </div>
-          </div> -->
           <div class="sticky-right house-inquiry__sticky-right">
             <div id="inquiry" class="inquiry-block">
               <div>
@@ -225,12 +215,12 @@
                       <%= @booking.villa.name %>
                     </h5>
                     <p class="inquiry-date-picker__price-from">
-                      A partir de <%= @villa.price_per_day %> € /nuit
+                      A partir de <%= @booking.villa.price_per_day %> € /nuit
                     </p>
                     <hr class="inquiry-date-picker__divider">
-                    <h6 class="mb-4">
+                    <h5 class="mb-4">
                       Votre réservation
-                    </h6>
+                    </h5>
                     <h5><%="Arrivée :  #{@booking.starts_on.strftime("%d/%m/%Y")} à 15:00" %></h5>
                     <h5><%="Départ :  #{@booking.ends_on.strftime("%d/%m/%Y")} à 11:00" %></h5>
                     <p class="my-4">Coût total : <%= number_with_delimiter((@booking.ends_on - @booking.starts_on).to_i * @booking.villa.price_per_day, :delimiter => ' ') %>€</p>
@@ -264,16 +254,21 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Confirmation de la réservation</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Laisser un commentaire</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Nous sommes ravis que vous ayez pu trouver la villa de vos rêves!
+          <%= simple_form_for [@booking.villa, @review] do |f| %>
+            <%= f.input :rating, label: "Donnez une note entre 1 à 5" %>
+            <%= f.input :title, label:"Donnez un titre à votre commentaire" %>
+            <%= f.input :content, as: :text, label: "Ecrivez votre commentaire", input_html: { rows: 5 } %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            <%= f.button :submit, "Enregistrer", class: "btn btn-secondary" %>
+          <% end %>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
       </div>
     </div>
   </div>

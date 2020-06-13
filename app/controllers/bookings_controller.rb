@@ -10,12 +10,8 @@ class BookingsController < ApplicationController
   end
 
   def index
-<<<<<<< HEAD
-    @bookings = Booking.where(user: current_user)
-=======
     @bookings_future = Booking.where(user: current_user).where('starts_on > ?', DateTime.now)
     @bookings_past = Booking.where(user: current_user).where('starts_on < ?', DateTime.now)
->>>>>>> 1153a761177f671a7abfd62b8f0be19f1acbe8fb
   end
 
   def show
