@@ -133,6 +133,11 @@
   z-index: 1;
 }
 
+.house-carousel__btn-container a {
+  text-decoration: none !important;
+  color: #000000;
+}
+
 .house-wishlist__btn {
   display: -ms-flexbox;
   display: flex;
