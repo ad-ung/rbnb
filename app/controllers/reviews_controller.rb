@@ -6,7 +6,8 @@ class ReviewsController < ApplicationController
     @review.villa = @villa
     @review.user = current_user
     @review.save
-    redirect_to booking_path(@villa.bookings.last)
+    # redirect_to booking_path(@villa.bookings.last)
+    redirect_to request.referrer
   end
 
   private
