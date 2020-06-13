@@ -16,7 +16,7 @@ class VillasController < ApplicationController
     @villa = Villa.find(params[:id])
     @booking = Booking.new
 
-    @favorite = Favorite.where(user_id: current_user.id, villa_id: @villa.id)
+    @favorite = Favorite.where(user: current_user, villa_id: @villa.id)
     if !@favorite.exists?
       @favorite = nil
     end
