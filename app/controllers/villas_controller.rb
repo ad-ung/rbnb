@@ -15,6 +15,12 @@ class VillasController < ApplicationController
   def show
     @villa = Villa.find(params[:id])
     @booking = Booking.new
+
+    @favorite = Favorite.where(user: current_user, villa_id: @villa.id)
+    if !@favorite.exists?
+      @favorite = nil
+    end
+
     @markers = [ {
       lat: @villa.latitude,
       lng: @villa.longitude
@@ -32,4 +38,5 @@ class VillasController < ApplicationController
     end
     return result
   end
+
 end
