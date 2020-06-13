@@ -19,6 +19,7 @@
               <%= image_tag @villa.img_url[2], class: "house-carousel__fullscreen-img" %>
             </div>
           </div>
+
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <i class="fas fa-angle-left" style="font-size: 5rem;"></i>
             <span class="sr-only">Previous</span>
@@ -28,16 +29,36 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-          <div class="container">
-            <div class="row">
-              <div class="house-carousel__btn-container">
-                <button class="btn house-wishlist__btn btn-sm btn-light">
-                  <i class="far fa-heart" style="padding-right: 10px;"></i>
-                    Ajouter aux favoris
-                </button>
+          <% if @favorite != nil %>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="house-carousel__btn-container">
+                    <button class="btn house-wishlist__btn btn-sm btn-light">
+                      <i class="far fa-heart" style="padding-right: 10px;"></i>
+                      <%= link_to 'Favoris', villa_favorite_path(@favorite), method: :delete %>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+
+          <% else %>
+
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="house-carousel__btn-container">
+                    <button class="btn house-wishlist__btn btn-sm btn-light">
+                      <i class="far fa-heart" style="padding-right: 10px;"></i>
+                      <%= link_to 'Ajouter aux favoris', villa_favorites_path(@villa), method: :post %>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
         </div>
       </div>
       <div class="house-heading__title container mt-2">
