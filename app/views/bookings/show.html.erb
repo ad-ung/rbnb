@@ -264,11 +264,9 @@
             <%= f.input :rating, label: "Donnez une note entre 1 à 5" %>
             <%= f.input :title, label:"Donnez un titre à votre commentaire" %>
             <%= f.input :content, as: :text, label: "Ecrivez votre commentaire", input_html: { rows: 5 } %>
-      </div>
-      <div class="modal-footer">
             <%= f.button :submit, "Enregistrer", class: "btn btn-secondary" %>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
           <% end %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
       </div>
     </div>
   </div>

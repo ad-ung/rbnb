@@ -37,12 +37,12 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
-toggleDateInputs();
-arrowOpacity();
-initUpdateNavbarOnScroll();
-enableButton();
-loadDynamicBannerText();
-initMapbox();
-showLocation();
+  toggleDateInputs();
+  arrowOpacity();
+  initUpdateNavbarOnScroll();
+  enableButton();
+  loadDynamicBannerText();
+  initMapbox();
+  showLocation();
 });
 
