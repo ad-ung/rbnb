@@ -52,7 +52,7 @@
                 <% end %>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h5><%= "Séjour #{booking.villa.city} - #{l(booking.starts_on, format: '%B %Y')}" %></h5>
+                  <h5><%= "Séjour #{booking.villa.city} - #{l(booking.starts_on, format: '%B %Y', locale: 'fr')}" %></h5>
                   <h5 class="subheading"><%= booking.villa.name %></h5>
                 </div>
                 <div class="timeline-body">
