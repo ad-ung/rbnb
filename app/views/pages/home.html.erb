@@ -22,19 +22,19 @@
 
 </div>
 
-  <div class="w-100 position-absolute text-center" style="top:32%;">
-    <h1 class="title">
-      <span id="banner-typed-text"></span>
-    </h1>
+<div class="w-100 position-absolute text-center" style="top:32%;">
+  <h1 class="title">
+    <span id="banner-typed-text"></span>
+  </h1>
 
-    <%= simple_form_for :search, url: villas_path, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
-      <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: "form-control-lg field", id: 'city' } %>
-      <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control-lg bg-white field", id:'booking_start_date', style: "width: 180px; margin: 8px;" } %>
-      <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control-lg bg-white field", id:'booking_end_date', style: "width: 180px; margin: 8px;"} %>
-      <%= f.input :guest_nb, collection: ["Voyageurs",1,2,3,4,5,6,7,8,9,10,11,12], selected: "Voyageurs", label: false, input_html: { class: "custom-select-lg field", id: "guests" } %>
-      <%= f.button :submit, "Rechercher", disabled: true, class: "btn btn-info", id:'button-search', style: "display:block;" %>
-    <% end %>
-  </div>
+  <%= simple_form_for :search, url: villas_path, method: "GET", html: { class: 'form-home form-inline justify-content-center' } do |f| %>
+    <%= f.input :city, placeholder: "Ville", label: false, input_html: { class: "form-control-lg field", id: 'city' } %>
+    <%= f.input :starts_on, as: :string, placeholder: "Date d'arrivée", label: false, input_html: { class: "form-control-lg bg-white field", id:'booking_start_date', style: "width: 180px; margin: 8px;" } %>
+    <%= f.input :ends_on, as: :string, placeholder: "Date de départ", label: false, input_html: { class: "form-control-lg bg-white field", id:'booking_end_date', style: "width: 180px; margin: 8px;"} %>
+    <%= f.input :guest_nb, collection: ["Voyageurs",1,2,3,4,5,6,7,8,9,10,11,12], selected: "Voyageurs", label: false, input_html: { class: "custom-select-lg field", id: "guests" } %>
+    <%= f.button :submit, "Rechercher", disabled: true, class: "btn btn-info", id:'button-search', style: "display:block;" %>
+  <% end %>
+</div>
 
 <!-- <form id="searchForm">
   <div class="form-row">
@@ -60,8 +60,8 @@
   <span class="arrow"></span>
   <!--<span class="hint">scroll</span>-->
 </a>
-
-<section class="page-section bg-light pt-5" id="villas">
+<br>
+<section class="page-section bg-light mt-5 py-4" id="villas">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-container montserrat" style="font-style: normal;">Nos sublimes villas</h2>
@@ -156,6 +156,7 @@
             </div>
           </div>
         </div>
+        <br>
       </section>
 
       <div class="content mt-4 pt-2 pb-5" id="content">

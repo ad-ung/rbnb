@@ -1,8 +1,4 @@
 class ReviewsController < ApplicationController
-  def new
-    @villa = Villa.find(params[:villa_id])
-    @review = Review.new
-  end
 
   def create
     @review = Review.new(review_params)
@@ -10,11 +6,12 @@ class ReviewsController < ApplicationController
     @review.villa = @villa
     @review.user = current_user
     @review.save
+    redirect_to booking_path(@villa.bookings.last)
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:content, :rating, :title)
   end
 end

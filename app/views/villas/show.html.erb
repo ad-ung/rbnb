@@ -74,9 +74,9 @@
             </div>
             <div class="house-description mr-4">
               <div class="house-description__container position-relative" style="overflow: visible;">
-                <i class="fas fa-quote-left"></i>
+                <i class="fas fa-quote-left" style="font-size: 2rem; color: #e4c478"></i>
                 <p class="text-align-justify" style="padding-top: 10px; padding-left: 10px; font-style: italic; font-size: 1rem;"><%= @villa.description %></p>
-                <i class="fas fa-quote-right position-absolute" style="right:-5px;"></i>
+                <i class="fas fa-quote-right position-absolute" style="right:-5px;font-size: 2rem; color: #e4c478"></i>
               </div>
               <!-- <button class="btn house-description__more-button btn-link">
                 <span>Lire toute la description</span>
@@ -178,7 +178,7 @@
               </div>
               <div class="base-review house-reviews-container">
                 <ul>
-                  <% @villa.reviews.each do |review| %>
+                  <% @villa.reviews.order("created_at DESC").each do |review| %>
                   <div class="base-review-container mb-4">
                      <div class="base-review__title">
                        <li class="list-group montserrat" style="font-size: 1.25rem;"><%= review.title %></li>
