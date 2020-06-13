@@ -157,7 +157,7 @@ puts "create booking"
 
 villas.each do |villa|
   b = Booking.new(starts_on: "26/07/2020", ends_on: "04/08/2020")
-  b.user = User.find_by(pseudo: "Alexandre")
+  b.user = User.find_by(pseudo: "John")
   b.villa = Villa.find_by(name: villa)
   b.save!
 end
@@ -171,7 +171,7 @@ villas-bis = Villa.all.sample(3)
 villas-bis.each do |villa|
   f = Favorite.new
   f.villa_id = villa.id
-  f.user = User.find_by(pseudo: "Alexandre")
+  f.user = User.find_by(pseudo: "John")
   f.save!
 end
 
