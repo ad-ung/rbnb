@@ -10,6 +10,20 @@
           <%= link_to villa_path(villa) do %>
             <div class="card-img" style="background-image: url('<%= villa.img_url[0] %>');">
             </div>
+            <% if @favorite != nil %>
+              <%= link_to villa_favorite_path(@favorite), method: :delete do %>
+                <div class="icn-favorite icn-favorite__index">
+                  <button>
+                    <i id="fav-index" class="far fa-heart"></i>
+                  </button>
+                </div>
+              <% else %>
+                <button>
+                  <i id="fav-index" class="far fa-heart"></i>
+                  <%= link_to villa_favorite_path(@favorite), method: :post %>
+                </button>
+              <% end %>
+            <% end %>
           <% end %>
           <div class="card-infos position-relative mb-2">
             <h3 class="mt-2 mb-3 montserrat"><%= villa.name %></h3>

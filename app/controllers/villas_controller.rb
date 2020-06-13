@@ -7,6 +7,10 @@ class VillasController < ApplicationController
       if available?(f.villa, params["search"][:starts_on].to_date, params["search"][:ends_on].to_date)
         if f.villa.city == params["search"][:city].split(',')[0]
           @villas << f.villa
+          @favorite = Favorite.where(user: current_user, villa_id: f.villa.id)
+          if !@favorite.exists?
+            @favorite = nil
+          end
         end
       end
     end
