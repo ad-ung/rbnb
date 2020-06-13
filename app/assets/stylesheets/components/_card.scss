@@ -309,9 +309,9 @@ h1, h2, h3, .h1, .h2, .h3,  {
 }
 
 h4, h5, h6, .h4, .h5, .h6 {
-  margin-bottom: 1rem;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 500;
+  margin-bottom: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   line-height: 1.2;
   color: #202020;
 }
@@ -478,11 +478,11 @@ ul {
   }
 }
 
-@media (min-width: 768px) {
-.house-carousel__fullscreen-img {
-    height: 480px;
-  }
-}
+// @media (min-width: 768px) {
+// .house-carousel__fullscreen-img {
+//     height: 480px;
+//   }
+// }
 
 @media (min-width: 1170px) {
 .container {
